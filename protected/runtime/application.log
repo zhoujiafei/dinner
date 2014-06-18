@@ -9880,3 +9880,35 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/dinner/branches/beta/index.php?r=members
 ---
+2014/06/18 22:11:56 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/Users/liujinlan/web/dinner/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /Users/liujinlan/web/dinner/yii/framework/web/CAssetManager.php:138
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/CAssetManager.php(123): CAssetManager->setBasePath('/Users/liujinla...')
+#1 /Users/liujinlan/web/dinner/yii/framework/web/CAssetManager.php(217): CAssetManager->getBasePath()
+#2 /Users/liujinlan/web/dinner/yii/framework/web/helpers/CHtml.php(1295): CAssetManager->publish('/Users/liujinla...', false)
+#3 /Users/liujinlan/web/dinner/yii/framework/web/widgets/pagers/CLinkPager.php(226): CHtml::asset('/Users/liujinla...')
+#4 /Users/liujinlan/web/dinner/yii/framework/web/widgets/pagers/CLinkPager.php(216): CLinkPager::registerCssFile(NULL)
+#5 /Users/liujinlan/web/dinner/protected/widgets/MyLinkPager.php(6): CLinkPager->registerClientScript()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CBaseController.php(173): MyLinkPager->run()
+#7 /Users/liujinlan/web/dinner/protected/views/members/index.php(54): CBaseController->widget('application.wid...', Array)
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CBaseController.php(126): require('/Users/liujinla...')
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/liujinla...', Array, true)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(869): CBaseController->renderFile('/Users/liujinla...', Array, true)
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#12 /Users/liujinlan/web/dinner/protected/controllers/MembersController.php(96): CController->render('index', Array)
+#13 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): MembersController->actionIndex()
+#14 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('')
+#23 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('members')
+#24 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/dinner/index.php?r=members
+HTTP_REFERER=http://localhost/dinner/index.php?r=index
+---
