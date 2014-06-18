@@ -65,6 +65,10 @@ CREATE TABLE IF NOT EXISTS `liv_config` (
   UNIQUE KEY `dinner_time` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='订餐时间配置';
 
+
+INSERT INTO `liv_config` (`name`, `start_time`, `end_time`, `is_open`) VALUES
+('dinner_time', '09:00:00', '13:30:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -229,6 +233,10 @@ CREATE TABLE IF NOT EXISTS `liv_user` (
   `order_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台用户表' AUTO_INCREMENT=1 ;
+
+INSERT INTO `liv_user` (`id`, `username`, `password`, `salt`, `create_time`, `order_id`) VALUES
+(1, 'admin', '6b3e3f74a9ec2fbc517f50b483c5d4fa', 'aqdlt', 1398517782, 1);
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
