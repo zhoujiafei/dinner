@@ -1,0 +1,10 @@
+2014/04/14 11:35:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in /Users/zhoujiafei/web/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Users/zhoujiafei/web/yii/framework/web/CController.php(270): CController->missingAction('index')
+#1 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#2 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('stock/index')
+#3 /Users/zhoujiafei/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/zhoujiafei/web/yii/testdrive/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=stock/index
+---

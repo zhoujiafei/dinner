@@ -1,0 +1,65 @@
+.login{background:#fff;width:100%;font-size:14px;min-height: 350px;border:1px solid #ddd;margin-top:3px;padding-bottom:50px}
+.login label{float:left;width:140px;text-align:right;margin-right:10px;color:#676767;}
+.login-title{float:left;width:100%;border-bottom:1px solid #E2E2E2;}
+#container .login h3{font-size:20px;font-weight:bold;font-family:'ËÎÌå';line-height:2em;padding:10px 10px 0 20px;float:left;color:#EB781F;border-bottom:2px solid #FEC669;margin:0 0 -2px 0;}
+.login>ul{float:left;width:610px;margin-top:40px;}
+.login li{float:left;width:585px;line-height:2em;margin-top:20px;position:relative;}
+.login p{font-size:12px;}
+.login input{float:left;margin-right:15px;color:#666;}
+.login input[type=submit],.login input[type=button]{margin-left:150px;border:none;background:url("../../images/front/button.png") no-repeat 0 0; width:82px;height:32px;font-family:'Microsoft Yahei';font-size:16px;float:left;color:#963;}
+.login input[type=button]:hover,.login input[type=submit]:hover{background-position:0 -58px;}
+.login_phone{color:#099a35;}
+.login_btn p a{color: #9A9A9A;font-size: 13px;}
+.login_btn p a:hover{color:Blue;text-decoration:none;}
+.login .bind_info #validTips{padding-left:150px;line-height:16px;}
+.check_number a{float:left;background:url("../../images/front/pubBtn.png") no-repeat 0 0; width:80px;height:30px;line-height:30px;text-align:center;color:#666;text-decoration:none;font-family:'Microsoft Yahei';font-weight:600;}
+#CheckNumber{width:80px;margin-left:10px;}
+/*ÒÑÓÐÕÊºÅ*/
+.member{padding:10px 0 50px 50px;float:left;margin-top:40px;border-left:1px dashed #E2E2E2;width:305px;}
+.member span{float:left;width:250px;padding-bottom:20px;color:#666;font-size:12px;}
+.member a{float:left;background:url("../../images/front/pubBtn.png") no-repeat 0 0; width:80px;height:30px;line-height:30px;text-align:center;color:#666;text-decoration:none;font-family:'Microsoft Yahei';}
+.member a:hover{background-position:0 -31px}
+#regist_result{display:none;}
+
+/*²ÍÌüÒ³¸¡²ãµÇÂ¼*/
+.tabHd{height:49px;background:#fafafa;position:relative;border-bottom:1px solid #ddd;/*#ddd*/}
+.tabHd ul{padding-left:30px;float:left;text-align:center;width:494px;}
+.tabHd ul li{float:left;width:76px;height:36px;line-height:36px;margin:12px 3px 0 0;color:#f0693e;font-weight:bold;font-size:16px;}
+.tabHd ul li:hover{cursor:pointer;}
+.tabHd ul li.tabSelect{border:1px solid #ddd;border-radius:3px 3px 0px 0px;border-bottom:1px solid #fff;background:#fff;}
+.tabHd a.close{position:absolute;top:18px;right:18px;color:#999;}
+.minBd{margin:0 auto;padding-top:22px;background:#fff;}
+.minBd .othLogin{margin-left:112px;}
+.minRegist{display:none;}
+.field{width:524px;margin:20px 0 0 0;float:left;}
+.field label{display:block;float:left;width:100px;height:27px;line-height:27px;text-align:right;margin:0 12px 0 0;color:#666;}
+.field input{width:230px;height:27px;padding:0;float:left;margin-right:10px;}
+.remLog,.minBd .submit{margin-top:20px;padding:0 0 0 110px;width:100%;float:left;}
+.othLogin{margin-top:20px;width:100%;float:left;}
+.submit button{border:none;background:url("../image/minLog.png") no-repeat 0 0; width:97px;height:35px;font-weight:bold;font-size:15px;color:#fff;float:left;}
+.othLogin p,.remLog label{color:#9a9a9a;font-size: 13px;}
+.othLogin a{border:1px solid #ddd;border-radius:2px 2px 2px 2px;width:76px;height:24px;display:block;float:left;margin:5px 12px 0 0;}
+.minLogin{display:block;}
+/*×¢²á³É¹¦Ò³*/
+.login .reg_suc{margin-top:100px;text-align:center;}
+.login .reg_suc i{width: 50px;height: 50px;line-height:50px;margin-right: 20px;background:url(../image/pass.png) no-repeat;}
+.login .reg_suc span{font-size: 20px;color:#267001;line-height:50px;position:relative;top:-16px;}
+.login .reg_suc a{width:92px;height:32px;line-height:30px;background:url(../image/base/btn_r.png) no-repeat;font-size:14px;margin: 10px 0 0 0;padding-left:10px;font-family:'Microsoft Yahei';color:#963;text-align:left;position:relative;top:-16px;}
+.login .reg_suc i,.login .reg_suc span,.login .reg_suc a{display:inline-block;}
+
+/*ÑûÇë×¢²á*/
+.login .bind_info input[type="button"]{background:url(../image/btn_nor.jpg) 0 0 no-repeat;text-indent:-9999px;border:none;margin:0;width:72px;height:28px;}
+.login .bind_info span{color:Red;}
+.login .bind_info input[type="text"]{width:70px;}
+#validTips{color:Red;font-size:12px;}
+.telk_note {margin-top: 6px;font-size: 12px;padding-left: 148px;}
+
+/*ÕÒ»ØÃÜÂë*/
+.login_btn #sendToMail{margin:0px;margin-left: 150px;}
+#ValidateCodeClick_retrievePwd{color:#963;font-size:13px;margin-left: 0px;}
+#ValidateCodeClick_retrievePwd:hover{text-decoration: underline;cursor: pointer;color:Blue}
+#validCode{width: 70px;}
+#authenticationCode_retrievePwd {margin-top: 5px;}
+.wait{font-size:13px;color:#963}
+.success{font-size:13px;color:Green;border:1px solid #adcd3c; background:#f2fddb;border-radius:8px;}
+.sendMailTips {color: #666;font-size: 13px;margin-left: 69px;}

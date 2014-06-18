@@ -1,0 +1,42 @@
+2014/01/08 13:52:15 [error] [php] file_put_contents(111.txt): failed to open stream: Permission denied (/Users/zhoujiafei/web/yii/demos/testdrive/protected/controllers/SiteController.php:35)
+Stack trace:
+#0 /Users/zhoujiafei/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/zhoujiafei/web/yii/framework/web/CController.php(286): SiteController->runAction()
+#2 /Users/zhoujiafei/web/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#3 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#4 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Users/zhoujiafei/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /Users/zhoujiafei/web/yii/demos/testdrive/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/demos/testdrive/
+in /Users/zhoujiafei/web/yii/demos/testdrive/protected/controllers/SiteController.php (35)
+in /Users/zhoujiafei/web/yii/demos/testdrive/index.php (13)
+2014/01/08 13:52:48 [error] [php] file_put_contents(111.txt): failed to open stream: Permission denied (/Users/zhoujiafei/web/yii/demos/testdrive/protected/controllers/SiteController.php:35)
+Stack trace:
+#0 /Users/zhoujiafei/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/zhoujiafei/web/yii/framework/web/CController.php(286): SiteController->runAction()
+#2 /Users/zhoujiafei/web/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#3 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#4 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Users/zhoujiafei/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /Users/zhoujiafei/web/yii/demos/testdrive/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/demos/testdrive/
+in /Users/zhoujiafei/web/yii/demos/testdrive/protected/controllers/SiteController.php (35)
+in /Users/zhoujiafei/web/yii/demos/testdrive/index.php (13)
+2014/01/08 13:52:50 [error] [php] file_put_contents(111.txt): failed to open stream: Permission denied (/Users/zhoujiafei/web/yii/demos/testdrive/protected/controllers/SiteController.php:35)
+Stack trace:
+#0 /Users/zhoujiafei/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/zhoujiafei/web/yii/framework/web/CController.php(286): SiteController->runAction()
+#2 /Users/zhoujiafei/web/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#3 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#4 /Users/zhoujiafei/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Users/zhoujiafei/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /Users/zhoujiafei/web/yii/demos/testdrive/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/demos/testdrive/
+in /Users/zhoujiafei/web/yii/demos/testdrive/protected/controllers/SiteController.php (35)
+in /Users/zhoujiafei/web/yii/demos/testdrive/index.php (13)
+2014/01/13 15:09:21 [error] [php] json_decode() expects parameter 1 to be string, array given (/Users/zhoujiafei/web/yii/framework/web/CWebApplication.php:278)
+Stack trace:
+#0 /Users/zhoujiafei/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#1 /Users/zhoujiafei/web/yii/demos/testdrive/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/demos/testdrive/index.php?r=site/login
+in /Users/zhoujiafei/web/yii/demos/testdrive/index.php (13)
