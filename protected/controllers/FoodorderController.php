@@ -19,6 +19,7 @@ class FoodOrderController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('audit','delete','deductmoney','cancelorder','todayorder','onekey'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -306,7 +307,58 @@ class FoodOrderController extends Controller
 			'date' => $date,
 		));
 	}
-
+	
+	//一健扣款（扣除当天的订单的钱）
+	public function actionOneKey()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			//查询出今日待付款的订单
+			$criteria = new CDbCriteria();
+			$criteria->order = 't.create_time DESC';//按时间倒序排
+			$today = strtotime(date('Y-m-d'));
+			$tomorrow = strtotime(date('Y-m-d',time()+24*3600));
+			$criteria->condition = '(t.status = :status) AND t.create_time > :today AND t.create_time < :tomorrow';
+			$criteria->params = array(':status' => 1,':today' => $today,':tomorrow' => $tomorrow);
+			$model = FoodOrder::model()->with('shops','members')->findAll($criteria);
+			
+			//循环扣款
+			foreach($model AS $k => $cur_order)
+			{
+				$user_balance = $cur_order->members->balance;//获取用户的账户余额
+				//如果用户账户余额不够就直接下一个
+				if($user_balance < $cur_order->total_price)
+				{
+					continue;
+				}
+				
+				$cur_order->members->balance -= $cur_order->total_price;
+				if($cur_order->members->save())
+				{
+					$cur_order->status = 2;
+					if($cur_order->save())
+					{
+						//创建一条订单日志
+						$foodOrderLog = new FoodOrderLog();
+						$foodOrderLog->food_order_id = $cur_order->id;
+						$foodOrderLog->status = $cur_order->status;
+						$foodOrderLog->create_time = time();
+						if($foodOrderLog->save())
+						{
+							//记录扣款记录
+							Yii::app()->record->record($cur_order->food_user_id,$cur_order->total_price);
+						}
+					}
+				}
+			}
+			$this->output(array('success' => 1,'successText' => '一健扣款成功'));
+		}
+		else 
+		{
+			throw new CHttpException(404,Yii::t('yii','非法操作'));
+		}
+	}
+	
 	//加载模型
 	public function loadModel($id)
 	{
