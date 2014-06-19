@@ -97,6 +97,7 @@ $(function(){
       <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
         	<input type="button" value="一健扣款" class="button" id="onekey" />
+        	<label style="color: red">温馨提示：只扣除今天的未付款订单，账户余额不足的不予处理</label>
           <table>
             <thead>
               <tr>
