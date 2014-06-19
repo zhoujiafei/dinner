@@ -19,9 +19,9 @@
                 <th>所属商家</th>
                 <th>用户名</th>
                 <th>订单状态</th>
+                <th>订餐内容</th>
                 <th>总价</th>
                 <th>下单时间</th>
-                <th>订餐内容</th>
               </tr>
             </thead>
             <tfoot>
@@ -41,13 +41,13 @@
 		                <td><?php echo $v['shop_name'];?></td>
 		                <td><?php echo $v['user_name'];?></td>
 		                <td style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>
-		                <td><?php echo $v['create_time'];?></td>
 		                <td>
 		                	<?php foreach($v['product_info'] AS $_k => $_v):?>
 							<p><?php echo $_v['Name'];?> : <?php echo $_v['Price'];?> x <?php echo $_v['Count'];?>------<?php echo $_v['smallTotal'];?>元</p>		                  
 							<?php endforeach;?>
 		                </td>
 		                 <td>¥ <?php echo $v['total_price'];?></td>
+		                 <td><?php echo $v['create_time'];?></td>
 		              </tr>
               		<?php endforeach;?>
               <?php endif;?>
