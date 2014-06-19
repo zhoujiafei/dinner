@@ -19,7 +19,6 @@ class FoodOrderController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('audit','delete','deductmoney','cancelorder','todayorder'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users

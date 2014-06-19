@@ -58,6 +58,30 @@ $(function(){
 		var url = "<?php echo Yii::app()->createUrl('foodorder/todayorder');?>";
 		window.location.href = url+'&date='+date;
 	})
+
+	//当天订单一健扣款
+	$('#onekey').click(function(){
+		if(confirm('您确定要为今天的订单扣款吗？'))
+		{
+			var url = "<?php echo Yii::app()->createUrl('foodorder/onekey');?>";
+			$.ajax({
+				type:'GET',
+				url:url,
+				dataType: "json",
+				success:function(data){
+					if(data.errorCode)
+					{
+						alert(data.errorText);
+					}
+					else if(data.success)
+					{
+						alert(data.successText);
+						window.location.reload();
+					}
+				}
+			})
+		}
+	})
 })
 </script>
 <div class="content-box">
@@ -72,6 +96,7 @@ $(function(){
       <!-- End .content-box-header -->
       <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
+        	<input type="button" value="一健扣款" class="button" id="onekey" />
           <table>
             <thead>
               <tr>
