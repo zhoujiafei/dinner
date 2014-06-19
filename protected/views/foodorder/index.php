@@ -61,7 +61,7 @@ $(function(){
 
 	//当天订单一健扣款
 	$('#onekey').click(function(){
-		if(confirm('您确定要为今天的订单扣款吗？'))
+		if(confirm('您确定要为今天未付款订单扣款吗？'))
 		{
 			var url = "<?php echo Yii::app()->createUrl('foodorder/onekey');?>";
 			$.ajax({
