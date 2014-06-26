@@ -311,7 +311,7 @@ class SiteController extends FormerController
 		//登录成功
 		if($identity->errorCode===MemberIdentity::ERROR_NONE)
 		{
-			$duration = 3600*24;//保持一个小时
+			$duration = 3600*24*30;//保持一个月
 			Yii::app()->user->login($identity,$duration);
 			$this->errorOutput(array('error' => 4));
 		}
