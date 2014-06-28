@@ -25,8 +25,8 @@ class Reply extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('content,message_id,create_time', 'required'),
-			array('id, content, message_id, create_time', 'safe', 'on'=>'search'),
+			array('content,message_id,create_time,user_id', 'required'),
+			array('id, content, message_id, create_time,user_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -38,6 +38,7 @@ class Reply extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'members' 	=> array(self::BELONGS_TO, 'Members', '', 'on' => 't.user_id = members.id'),
 		);
 	}
 

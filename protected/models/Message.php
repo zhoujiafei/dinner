@@ -41,6 +41,7 @@ class Message extends CActiveRecord
 		return array(
 			'shops' 	=> array(self::BELONGS_TO, 'Shops', '', 'on' => 't.shop_id = shops.id'),
 			'members' 	=> array(self::BELONGS_TO, 'Members', '', 'on' => 't.user_id = members.id'),
+			'replys'	=> array(self::HAS_MANY,'Reply','','on' => 't.id = replys.message_id'),
 		);
 	}
 

@@ -10200,3 +10200,100 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/dinner/index.php?r=site/lookmenu
 ---
+2014/06/28 22:18:43 [error] [exception.CException] exception 'CException' with message 'Property "CHasManyRelation.0" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1998): CComponent->__set('0', 't.id = replys.m...')
+#1 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2408): CBaseActiveRelation->__construct('replys', 'Reply', '', Array)
+#2 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2389): CActiveRecordMetaData->addRelation('replys', Array)
+#3 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Message))
+#4 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#5 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1601): CActiveRecord->getTableSchema()
+#6 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(157): CActiveRecord->count(Object(CDbCriteria))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLookMenu()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#11 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#12 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#16 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#17 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=16
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/index
+---
+2014/06/28 22:19:15 [error] [exception.CException] exception 'CException' with message 'Property "CHasManyRelation.0" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1998): CComponent->__set('0', 't.id = replys.m...')
+#1 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2408): CBaseActiveRelation->__construct('replys', 'Reply', '', Array)
+#2 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2389): CActiveRecordMetaData->addRelation('replys', Array)
+#3 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Message))
+#4 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#5 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1601): CActiveRecord->getTableSchema()
+#6 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(157): CActiveRecord->count(Object(CDbCriteria))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLookMenu()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#11 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#12 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#16 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#17 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=16
+---
+2014/06/28 22:20:01 [error] [exception.CException] exception 'CException' with message 'Property "CHasManyRelation.0" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1998): CComponent->__set('0', 't.id = replys.m...')
+#1 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2408): CBaseActiveRelation->__construct('replys', 'Reply', '', Array)
+#2 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2389): CActiveRecordMetaData->addRelation('replys', Array)
+#3 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Message))
+#4 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#5 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1601): CActiveRecord->getTableSchema()
+#6 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(157): CActiveRecord->count(Object(CDbCriteria))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLookMenu()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#11 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#12 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#16 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#17 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=16
+---
+2014/06/28 22:20:02 [error] [exception.CException] exception 'CException' with message 'Property "CHasManyRelation.0" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1998): CComponent->__set('0', 't.id = replys.m...')
+#1 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2408): CBaseActiveRelation->__construct('replys', 'Reply', '', Array)
+#2 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(2389): CActiveRecordMetaData->addRelation('replys', Array)
+#3 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Message))
+#4 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#5 /Users/liujinlan/web/dinner/yii/framework/db/ar/CActiveRecord.php(1601): CActiveRecord->getTableSchema()
+#6 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(157): CActiveRecord->count(Object(CDbCriteria))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLookMenu()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#11 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#12 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#16 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#17 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=16
+---

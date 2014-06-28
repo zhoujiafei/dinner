@@ -159,7 +159,7 @@ class SiteController extends FormerController
 		$pages = new CPagination($count);
  		$pages->pageSize = Yii::app()->params['pagesize'];
 		$pages->applyLimit($criteria);
-		$messageMode = Message::model()->with('members','shops')->findAll($criteria);
+		$messageMode = Message::model()->with('members','shops','replys')->findAll($criteria);
 		$message = array();
 		foreach($messageMode AS $k => $v)
 		{
@@ -168,9 +168,16 @@ class SiteController extends FormerController
 			$message[$k]['user_name'] = $v->members->name;
 			$message[$k]['create_time'] = date('Y-m-d H:i:s',$v->create_time);
 			$message[$k]['status_text'] = Yii::app()->params['message_status'][$v->status];
-			$message[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];			
+			$message[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];
+			$message[$k]['replys'] = CJSON::decode(CJSON::encode($v->replys));
+			if(!empty($message[$k]['replys']))
+			{
+				foreach ($message[$k]['replys'] AS $kk => $vv)
+				{
+					$message[$k]['replys'][$kk]['create_time'] = date('Y-m-d H:i:s',$vv['create_time']);
+				}
+			}
 		}
-		
 		$this->render('lookmenu',array(
 			'menus' 	=> $data,
 			'shop' 		=> $shopData,

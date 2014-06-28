@@ -283,13 +283,17 @@ $(function(){
 	                        <span class="sm_time"><?php echo $_v['create_time'];?></span>
 	                        <a href="javascript:;" id="373758" class="sm_reply">回复</a>
 	                    </p>
+	                    <?php if($_v['replys']):?>
+	                    <?php foreach ($_v['replys'] AS $kk => $vv):?>
                         <div class="reply_info">
-                            <p>bklhkl</p>
+                            <p><?php echo $vv['content'];?></p>
                             <p>
-                               <span class="sm_nick">[1楼]游客 92892</span>
-                               <span class="sm_time">2014-6-27 22:27:36</span>
+                               <span class="sm_nick">[<?php echo ($kk + 1);?>楼]</span>
+                               <span class="sm_time"><?php echo $_v['create_time'];?></span>
                             </p>
                         </div>
+                        <?php endforeach;?>
+                        <?php endif;?>
 	                </div>
 	                <?php endforeach;?>
 	                <?php endif;?>
