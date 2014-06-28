@@ -169,15 +169,23 @@ class SiteController extends FormerController
 			$message[$k]['create_time'] = date('Y-m-d H:i:s',$v->create_time);
 			$message[$k]['status_text'] = Yii::app()->params['message_status'][$v->status];
 			$message[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];
-			$message[$k]['replys'] = CJSON::decode(CJSON::encode($v->replys));
-			if(!empty($message[$k]['replys']))
+			
+			$_replys = Reply::model()->with('members')->findAll(array(
+					'condition' => 'message_id=:message_id',
+					'params'	=> array(':message_id' => $v->id),
+			));
+			
+			if(!empty($_replys))
 			{
-				foreach ($message[$k]['replys'] AS $kk => $vv)
+				foreach ($_replys AS $kk => $vv)
 				{
-					$message[$k]['replys'][$kk]['create_time'] = date('Y-m-d H:i:s',$vv['create_time']);
+					$message[$k]['replys'][$kk] = $vv->attributes;
+					$message[$k]['replys'][$kk]['create_time'] 	= date('Y-m-d H:i:s',$vv->create_time);
+					$message[$k]['replys'][$kk]['user_name'] 	= $vv->members->name;
 				}
 			}
 		}
+		
 		$this->render('lookmenu',array(
 			'menus' 	=> $data,
 			'shop' 		=> $shopData,

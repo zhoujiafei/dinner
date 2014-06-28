@@ -10297,3 +10297,37 @@ Stack trace:
 #19 {main}
 REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=16
 ---
+2014/06/28 23:17:10 [error] [php] date() expects parameter 2 to be long, string given (/Users/liujinlan/web/dinner/protected/controllers/SiteController.php:184)
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#2 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime()
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CWebApplication->run()
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=1
+in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php (184)
+in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php (75)
+in /Users/liujinlan/web/dinner/index.php (13)
+2014/06/28 23:17:17 [error] [php] date() expects parameter 2 to be long, string given (/Users/liujinlan/web/dinner/protected/controllers/SiteController.php:184)
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#2 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime()
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CWebApplication->run()
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=1
+in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php (184)
+in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php (75)
+in /Users/liujinlan/web/dinner/index.php (13)

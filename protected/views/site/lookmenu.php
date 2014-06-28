@@ -281,14 +281,14 @@ $(function(){
 	                    <p>
 	                        <span class="sm_nick"><?php echo $_v['user_name'];?></span>
 	                        <span class="sm_time"><?php echo $_v['create_time'];?></span>
-	                        <a href="javascript:;" id="373758" class="sm_reply">回复</a>
+	                        <a href="javascript:;"  class="sm_reply">回复</a>
 	                    </p>
 	                    <?php if($_v['replys']):?>
 	                    <?php foreach ($_v['replys'] AS $kk => $vv):?>
                         <div class="reply_info">
                             <p><?php echo $vv['content'];?></p>
                             <p>
-                               <span class="sm_nick">[<?php echo ($kk + 1);?>楼]</span>
+                               <span class="sm_nick">[<?php echo ($kk + 1);?>楼] <?php echo $vv['user_name'];?></span>
                                <span class="sm_time"><?php echo $_v['create_time'];?></span>
                             </p>
                         </div>
