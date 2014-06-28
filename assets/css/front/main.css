@@ -414,8 +414,8 @@ td.foodListItem span.addToOrder{float:right}
 .make_msg input[type="text"]{width:220px;float:left;}
 .make_msg .chk_code img{border: 1px inset #000;height: 21px;width: 70px;cursor: pointer;float:left;margin:0 6px;}
 .make_msg .chk_code span{color:#999;cursor:pointer}
-.make_msg .btn input[type="button"]{background:url(../image/base/pubBtn.png) 0 0 no-repeat;border:none;width:80px;height:30px;cursor:pointer;font-size:14px;color:#333;font-family:'Microsoft Yahei';margin:0 10px 0 50px;}
-.make_msg .btn input[type="submit"]{background:url(../image/base/pubBtn.png) 0 0 no-repeat;border:none;width:80px;height:30px;cursor:pointer;font-size:14px;color:#333;font-family:'Microsoft Yahei';margin:0 10px 0 50px;}
+.make_msg .btn input[type="button"]{background:url(../../images/front/pubBtn.png) 0 0 no-repeat;border:none;width:80px;height:30px;cursor:pointer;font-size:14px;color:#333;font-family:'Microsoft Yahei';margin:0 10px 0 50px;}
+.make_msg .btn input[type="submit"]{background:url(../../images/front/pubBtn.png) 0 0 no-repeat;border:none;width:80px;height:30px;cursor:pointer;font-size:14px;color:#333;font-family:'Microsoft Yahei';margin:0 10px 0 50px;}
 .make_msg .btn input[type="submit"]:hover{background-position:0 -31px;}
 .make_msg .btn input[type="button"]:hover{background-position:0 -31px;}
 .make_msg .btn .tips{color:#f00;height:30px;line-height:30px;float:left;display:block;}
@@ -601,7 +601,7 @@ overflow:hidden;
 .gift ul dd{float:left;width:160px;margin:0 5px;text-align:center;}
 .gift ul img{border:1px solid #ececec;}
 .gift-more{padding:10px 0 10px 10px;float:left;}
-.gift button,.layer_inner button{background:url(../image/base/pubBtn.png) 0 0 no-repeat;width:80px;height:30px;border:none;cursor:pointer;}
+.gift button,.layer_inner button{background:url(../../images/front/pubBtn.png) 0 0 no-repeat;width:80px;height:30px;border:none;cursor:pointer;}
 .gift button:hover,.layer_inner button:hover{background-position:0 -31px;}
 
 /*----------------------------ËÑË÷Ò³Ãæ---------------------------*/

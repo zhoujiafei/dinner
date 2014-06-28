@@ -168,6 +168,21 @@ $(function(){
 		$('#tbbasket').hide();
 		$('#no_send').show();
 	}
+
+	//为选项卡绑定事件
+	$('#s_tab a').click(function(){
+		if(!$(this).hasClass('active'))
+		{
+			//获取当前显示的元素
+			var obj = $('#s_tab .active');
+			//显示自己
+			$(this).addClass('active');
+			$('#'+$(this).attr('_id')).show();
+			//隐藏别人
+			obj.removeClass('active');
+			$('#'+obj.attr('_id')).hide();
+		}
+	})
 })
 </script>
 <div id="school">
@@ -179,11 +194,8 @@ $(function(){
 <div class="clearfix">
     <div id="left" class="shadow s_menu">          
 	    <div id="s_tab">
-	        <a href="#" class="active">看菜单</a>
-	        <!-- 
-	        <a href="#">累积评价</a>
-	        <a href="#">给餐厅留言</a>
-	         -->
+	        <a href="#" class="active" _id="scrollPager">看菜单</a>
+	        <a href="#" _id="tab_comment">给餐厅留言</a>
 	    </div>
 	    <div id="scrollPager">
 	                <div class="foodList clearfix">
@@ -223,6 +235,43 @@ $(function(){
 	                    </div> 
 	                </div>
 	    </div>
+	    <!-- 留言区域 start-->
+	    <div id="tab_comment" style="display:none;">
+	                <div class="sm_list">
+	                    <p>您好，我的订单麻烦快一下，订单号140626031345，订单内容:虚拟13元A套餐*1，谢谢。</p>
+	                    <p>
+	                        <span class="sm_nick">Silence</span>
+	                        <span class="sm_time">2014-6-26 17:40:22</span>
+	                        <a href="javascript:;" id="373758" class="sm_reply">回复</a>
+	                    </p>
+                        <div class="reply_info">
+                            <p>bklhkl</p>
+                            <p>
+                               <span class="sm_nick">[1楼]游客 92892</span>
+                               <span class="sm_time">2014-6-27 22:27:36</span>
+                            </p>
+                        </div>
+	                </div>
+	        <div id="pageHtml"></div>
+	        <div class="make_msg">
+	            <div>
+	                <label>留言：</label>
+	                <textarea name="ctl00$ContentPlaceHolder1$txtMessageContent" id="txtMessageContent"></textarea>
+	            </div>
+	            <div class="chk_code">
+	                <label>验证码：</label>
+	                <input name="ctl00$ContentPlaceHolder1$txtValidateCode" type="text" id="txtValidateCode">
+	                <div id="ValidateCode1"><img src=""></div>
+	                <span id="ValidateCodeClick_fBack1">刷新验证码</span>
+	            </div>
+	            <div class="btn">
+	                <input type="submit" name="ctl00$ContentPlaceHolder1$btnSendClick" value="提交" onclick="return checkValidCode();this.disabled=true;" id="btnSendClick">
+	                <span class="validRs"></span>
+	            </div>
+	        </div>
+	        <div class="clear"></div>
+	    </div>
+	    <!-- 留言区域 end-->
     </div>
     <!--end of left-->
 	<div id="right">

@@ -10,7 +10,7 @@ class SiteController extends FormerController
 			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder',//检测是否登录
 			'checkIsCartEmpty + lookcart,confirmorder',//检测购物车是否为空
 			'checkReqiest + doregister,domodify',//判断是不是ajax请求
-			'checkIsOnTime +lookmenu,lookcart,confirmorder',//判断是否在订餐时间内
+			'checkIsOnTime +lookmenu,lookcart,confirmorder,leavemessage',//判断是否在订餐时间内
 		);
 	}
 	
@@ -516,5 +516,11 @@ class SiteController extends FormerController
 	public function actionFoodShare()
 	{
 		$this->render('foodshare');
+	}
+	
+	//用户留言
+	public function actionLeaveMessage()
+	{
+		$this->render('leavemessage');
 	}
 }
