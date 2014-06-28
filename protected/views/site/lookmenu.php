@@ -183,6 +183,43 @@ $(function(){
 			$('#'+obj.attr('_id')).hide();
 		}
 	})
+
+	//提交留言
+	$('#sendMessageBtn').click(function(){
+		var content = $('#message_content').val();
+		var validate_code = $('#validate_code').val();
+		var shop_id = $('#shop_id').val();
+		if(!content)
+		{
+			alert('留言不能为空');
+			return;
+		}
+
+		if(!validate_code)
+		{
+			alert('验证码不能为空');
+			return;
+		}
+
+		var url = "<?php echo Yii::app()->createUrl('site/submitmessage');?>";
+		$.ajax({
+			type:'POST',
+			url:url,
+			dataType: "json",
+			data:{content:content,validate_code:validate_code,shop_id:shop_id},
+			success:function(data){
+				if(data.errorCode)
+				{
+					alert(data.errorText);
+				}
+				else if(data.success)
+				{
+					alert(data.successText);
+					window.location.reload();
+				}
+			}
+		})
+	})
 })
 </script>
 <div id="school">
@@ -194,8 +231,8 @@ $(function(){
 <div class="clearfix">
     <div id="left" class="shadow s_menu">          
 	    <div id="s_tab">
-	        <a href="#" class="active" _id="scrollPager">看菜单</a>
-	        <a href="#" _id="tab_comment">给餐厅留言</a>
+	        <a href="#" class="active" _id="scrollPager" id="scrollPagerTab">看菜单</a>
+	        <a href="#" _id="tab_comment" id="tab_comment_tab">给餐厅留言</a>
 	    </div>
 	    <div id="scrollPager">
 	                <div class="foodList clearfix">
@@ -237,11 +274,13 @@ $(function(){
 	    </div>
 	    <!-- 留言区域 start-->
 	    <div id="tab_comment" style="display:none;">
+	    			<?php if($message):?>
+	    			<?php foreach ($message AS $_k => $_v):?>
 	                <div class="sm_list">
-	                    <p>您好，我的订单麻烦快一下，订单号140626031345，订单内容:虚拟13元A套餐*1，谢谢。</p>
+	                    <p><?php echo $_v['content'];?></p>
 	                    <p>
-	                        <span class="sm_nick">Silence</span>
-	                        <span class="sm_time">2014-6-26 17:40:22</span>
+	                        <span class="sm_nick"><?php echo $_v['user_name'];?></span>
+	                        <span class="sm_time"><?php echo $_v['create_time'];?></span>
 	                        <a href="javascript:;" id="373758" class="sm_reply">回复</a>
 	                    </p>
                         <div class="reply_info">
@@ -252,20 +291,32 @@ $(function(){
                             </p>
                         </div>
 	                </div>
+	                <?php endforeach;?>
+	                <?php endif;?>
 	        <div id="pageHtml"></div>
 	        <div class="make_msg">
 	            <div>
 	                <label>留言：</label>
-	                <textarea name="ctl00$ContentPlaceHolder1$txtMessageContent" id="txtMessageContent"></textarea>
+	                <textarea name="content" id="message_content"></textarea>
 	            </div>
 	            <div class="chk_code">
 	                <label>验证码：</label>
-	                <input name="ctl00$ContentPlaceHolder1$txtValidateCode" type="text" id="txtValidateCode">
-	                <div id="ValidateCode1"><img src=""></div>
-	                <span id="ValidateCodeClick_fBack1">刷新验证码</span>
+	                <input type="text" id="validate_code" />
+	                <div id="ValidateCode1" style="margin-top:0px;">
+					    <?php $this->widget('CCaptcha',array(
+					        'showRefreshButton'	=> true,
+					        'clickableImage'	=> false,
+					    	'buttonLabel'		=>'刷新验证码',
+					        'imageOptions'		=> array(
+										            'style'		=>'cursor:pointer;width:90px;height:28px;border:0px solid #ddd',
+										            'padding'	=>'10'
+					    						)
+					        )); 
+					     ?>
+					 </div>
 	            </div>
 	            <div class="btn">
-	                <input type="submit" name="ctl00$ContentPlaceHolder1$btnSendClick" value="提交" onclick="return checkValidCode();this.disabled=true;" id="btnSendClick">
+	                <input type="button" value="提交" id="sendMessageBtn">
 	                <span class="validRs"></span>
 	            </div>
 	        </div>

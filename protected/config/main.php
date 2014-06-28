@@ -136,6 +136,11 @@ return array(
 			16 => 150,
 			17 => 200,
 		),
+		//留言状态
+		'message_status' => array(
+			1 => '已审核',
+			2 => '被打回',
+		),
 		//用户状态
 		'member_status' => array(
 			1 => '好同志',
@@ -224,13 +229,11 @@ return array(
 														        'en_name'       => 'announcement_manger',
 														        'link'          => 'announcement',  
 						    								),
-						    								/*
 						    								array(
-														        'zh_name'       => '用户吐槽',
-														        'en_name'       => 'complain_manger',
-														        'link'          => 'complain',
+														        'zh_name'       => '留言管理',
+														        'en_name'       => 'message_manger',
+														        'link'          => 'message',
 						    								),
-						    								*/
 												        ),            
 						    ),
 						    array(

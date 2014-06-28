@@ -7,10 +7,10 @@ class SiteController extends FormerController
 	public function filters()
 	{
 		return array(
-			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder',//检测是否登录
+			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder,submitmessage',//检测是否登录
 			'checkIsCartEmpty + lookcart,confirmorder',//检测购物车是否为空
-			'checkReqiest + doregister,domodify',//判断是不是ajax请求
-			'checkIsOnTime +lookmenu,lookcart,confirmorder,leavemessage',//判断是否在订餐时间内
+			'checkReqiest + doregister,domodify,submitmessage',//判断是不是ajax请求
+			'checkIsOnTime +lookmenu,lookcart,confirmorder',//判断是否在订餐时间内
 		);
 	}
 	
@@ -74,6 +74,19 @@ class SiteController extends FormerController
 		}
 		$filterChain->run();
 	}
+	
+	public function actions()
+	{
+		return array(
+              'captcha' => array(
+                    'class'		=>'CCaptchaAction',
+                    'maxLength'	=> 4,       // 最多生成几个字符
+                    'minLength'	=> 4,       // 最少生成几个字符
+					'testLimit' => 999,
+					//'fixedVerifyCode' => substr(md5(time()),11,4), //每次都刷新验证码
+            ), 
+         ); 
+	}
 
 	//前台首页
 	public function actionIndex()
@@ -135,7 +148,35 @@ class SiteController extends FormerController
 			$data[$k]['status'] = Yii::app()->params['menu_status'][$v->status];
 			$data[$k]['price'] = $v->price;
 		}
-		$this->render('lookmenu',array('menus' => $data,'shop' => $shopData));
+		
+		//获取该店的留言
+		$criteria = new CDbCriteria();
+		$criteria->order = 't.order_id DESC';
+		$criteria->condition = 't.shop_id=:shop_id AND t.status=:status';
+		$criteria->params = array(':shop_id' => $shop_id,':status' => 1);
+		$count=Message::model()->count($criteria);
+		//构建分页
+		$pages = new CPagination($count);
+ 		$pages->pageSize = Yii::app()->params['pagesize'];
+		$pages->applyLimit($criteria);
+		$messageMode = Message::model()->with('members','shops')->findAll($criteria);
+		$message = array();
+		foreach($messageMode AS $k => $v)
+		{
+			$message[$k] = $v->attributes;
+			$message[$k]['shop_name'] = $v->shops->name;
+			$message[$k]['user_name'] = $v->members->name;
+			$message[$k]['create_time'] = date('Y-m-d H:i:s',$v->create_time);
+			$message[$k]['status_text'] = Yii::app()->params['message_status'][$v->status];
+			$message[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];			
+		}
+		
+		$this->render('lookmenu',array(
+			'menus' 	=> $data,
+			'shop' 		=> $shopData,
+			'pages'		=> $pages,
+			'message'	=> $message,
+		));
 	}
 	
 	//查看购物车
@@ -518,9 +559,54 @@ class SiteController extends FormerController
 		$this->render('foodshare');
 	}
 	
-	//用户留言
-	public function actionLeaveMessage()
+	//提交留言
+	public function actionSubmitMessage()
 	{
-		$this->render('leavemessage');
+		$content = Yii::app()->request->getParam('content');
+		$validate_code = Yii::app()->request->getParam('validate_code');
+		$shop_id = Yii::app()->request->getParam('shop_id');
+		$user_id = Yii::app()->user->member_userinfo['id'];
+		if(!$content)
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '留言内容不能为空'));
+		}
+		
+		if(!$validate_code)
+		{
+			$this->errorOutput(array('errorCode' => 2,'errorText' => '验证码不能为空'));
+		}
+		
+		if(!$shop_id)
+		{
+			$this->errorOutput(array('errorCode' => 3,'errorText' => '没有商店id'));
+		}
+		
+		//验证验证码是否正确
+		if(!$this->createAction('captcha')->validate($validate_code,false))
+		{
+			$this->errorOutput(array('errorCode' => 4,'errorText' => '验证码有误'));
+		}
+		
+		$model = new Message();
+		$model->shop_id = $shop_id;
+		$model->user_id = $user_id;
+		$model->content = $content;
+		$model->create_time = time();
+		if($model->save())
+		{
+			$model->order_id = $model->id;
+			if($model->save())
+			{
+				$this->output(array('success' => 1,'successText' => '留言成功'));
+			}
+			else 
+			{
+				$this->errorOutput(array('errorCode' => 5,'errorText' => '留言失败'));
+			}
+		}
+		else 
+		{
+			$this->errorOutput(array('errorCode' => 5,'errorText' => '留言失败'));
+		}
 	}
 }

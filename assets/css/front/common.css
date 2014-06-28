@@ -258,7 +258,7 @@ height: 24px;*line-height:24px;float:left;color:#999;}
 .right_item h3{margin-left:10px;font-size:14px;}
 .right_item .ri_body{margin:0 10px;padding-bottom:15px;}
 .s_menu{border: 1px solid #DDD;min-height: 600px;}
-#s_tab{height:44px;border-bottom: 1px solid #ddd;background: url(../image/base/s_tab.gif) 0 0 repeat-x;padding-left:14px;}
+#s_tab{height:44px;border-bottom: 1px solid #ddd;background: url(../../images/front/s_tab.gif) 0 0 repeat-x;padding-left:14px;}
 #s_tab a{display:block;float:left;padding:0 15px;height:30px;line-height:34px;margin-top:14px;font-size:14px;}
 #s_tab a.active{background:#fff;border:1px solid #ddd;border-bottom:none;font-weight:bold;border-radius:6px 6px 0 0;}
 #s_tab p{margin-top:0;line-height:46px;font-size:18px;color:#333;font-weight:bold;font-family:'ËÎÌו';}
