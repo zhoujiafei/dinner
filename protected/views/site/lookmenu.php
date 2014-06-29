@@ -215,17 +215,29 @@ $(function(){
 				else if(data.success)
 				{
 					alert(data.successText);
-					window.location.reload();
+					window.location.href = $('#self_url').val() + '&show_msg=1';
 				}
 			}
 		})
 	})
+
+	//判断是否已进入页面就显示留言部分
+	if(parseInt($('#show_msg').val()) || parseInt($('#page_num').val()))
+	{
+		$('#scrollPagerTab').removeClass('active');
+		$('#scrollPager').hide();
+		$('#tab_comment_tab').addClass('active');
+		$('#tab_comment').show();
+	}
 })
 </script>
 <div id="school">
    <em>当前餐厅：<?php echo $shop['name'];?></em>
    <input type="hidden" id="shop_id" value="<?php echo $shop['id'];?>" />
    <input type="hidden" id="shop_name" value="<?php echo $shop['name'];?>" />
+   <input type="hidden" id="show_msg" value="<?php echo Yii::app()->request->getParam('show_msg');?>" />
+   <input type="hidden" id="self_url" value="<?php echo Yii::app()->createUrl('site/lookmenu',array('shop_id' => $shop['id']));?>" />
+   <input type="hidden" id="page_num" value="<?php echo Yii::app()->request->getParam('page');?>" />
 </div>
 <div id="rank" class="clearfix"></div>
 <div class="clearfix">
@@ -297,7 +309,19 @@ $(function(){
 	                </div>
 	                <?php endforeach;?>
 	                <?php endif;?>
-	        <div id="pageHtml"></div>
+	        <div id="pageHtml">
+	        	<?php $this->widget('application.widgets.MyLinkPager', array(
+                 			'pages' 			=> $pages,
+                 			'firstPageLabel' 	=> '首页',
+                 			'lastPageLabel' 	=> '末页',
+                 			'prevPageLabel' 	=> '前一页',
+                 			'nextPageLabel' 	=> '下一页',
+                 			'firstPageLabel' 	=> '首页',
+                 			'maxButtonCount' 	=> '5',
+                 			'header'			=> '',
+                 		));
+                 ?>
+	        </div>
 	        <div class="make_msg">
 	            <div>
 	                <label>留言：</label>
