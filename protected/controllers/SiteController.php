@@ -7,9 +7,9 @@ class SiteController extends FormerController
 	public function filters()
 	{
 		return array(
-			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder,submitmessage',//检测是否登录
+			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder',//检测是否登录
 			'checkIsCartEmpty + lookcart,confirmorder',//检测购物车是否为空
-			'checkReqiest + doregister,domodify,submitmessage',//判断是不是ajax请求
+			'checkReqiest + doregister,domodify,submitmessage,replymessage',//判断是不是ajax请求
 			'checkIsOnTime +lookmenu,lookcart,confirmorder',//判断是否在订餐时间内
 		);
 	}
@@ -580,26 +580,35 @@ class SiteController extends FormerController
 		$content = Yii::app()->request->getParam('content');
 		$validate_code = Yii::app()->request->getParam('validate_code');
 		$shop_id = Yii::app()->request->getParam('shop_id');
-		$user_id = Yii::app()->user->member_userinfo['id'];
+		
+		if(!isset(Yii::app()->user->member_userinfo))
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '你还未登录，请先去登录'));
+		}
+		else 
+		{
+			$user_id = Yii::app()->user->member_userinfo['id'];
+		}
+		
 		if(!$content)
 		{
-			$this->errorOutput(array('errorCode' => 1,'errorText' => '留言内容不能为空'));
+			$this->errorOutput(array('errorCode' => 2,'errorText' => '留言内容不能为空'));
 		}
 		
 		if(!$validate_code)
 		{
-			$this->errorOutput(array('errorCode' => 2,'errorText' => '验证码不能为空'));
+			$this->errorOutput(array('errorCode' => 3,'errorText' => '验证码不能为空'));
 		}
 		
 		if(!$shop_id)
 		{
-			$this->errorOutput(array('errorCode' => 3,'errorText' => '没有商店id'));
+			$this->errorOutput(array('errorCode' => 4,'errorText' => '没有商店id'));
 		}
 		
 		//验证验证码是否正确
 		if(!$this->createAction('captcha')->validate($validate_code,false))
 		{
-			$this->errorOutput(array('errorCode' => 4,'errorText' => '验证码有误'));
+			$this->errorOutput(array('errorCode' => 5,'errorText' => '验证码有误'));
 		}
 		
 		$model = new Message();
@@ -616,12 +625,12 @@ class SiteController extends FormerController
 			}
 			else 
 			{
-				$this->errorOutput(array('errorCode' => 5,'errorText' => '留言失败'));
+				$this->errorOutput(array('errorCode' => 6,'errorText' => '留言失败'));
 			}
 		}
 		else 
 		{
-			$this->errorOutput(array('errorCode' => 5,'errorText' => '留言失败'));
+			$this->errorOutput(array('errorCode' => 6,'errorText' => '留言失败'));
 		}
 	}
 	
@@ -630,15 +639,24 @@ class SiteController extends FormerController
 	{
 		$message_id = Yii::app()->request->getParam('reply_id');
 		$reply_content = Yii::app()->request->getParam('reply_content');
-		$user_id = Yii::app()->user->member_userinfo['id'];
+		
+		if(!isset(Yii::app()->user->member_userinfo))
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '你还未登录，请先去登录'));
+		}
+		else 
+		{
+			$user_id = Yii::app()->user->member_userinfo['id'];
+		}
+		
 		if(!$reply_content)
 		{
-			$this->errorOutput(array('errorCode' => 1,'errorText' => '回复内容不能为空'));
+			$this->errorOutput(array('errorCode' => 2,'errorText' => '回复内容不能为空'));
 		}
 		
 		if(!$message_id)
 		{
-			$this->errorOutput(array('errorCode' => 1,'errorText' => '未选择回复留言'));
+			$this->errorOutput(array('errorCode' => 3,'errorText' => '未选择回复留言'));
 		}
 		
 		$model = new Reply();
@@ -652,7 +670,7 @@ class SiteController extends FormerController
 		}
 		else 
 		{
-			$this->errorOutput(array('errorCode' => 5,'errorText' => '回复失败'));
+			$this->errorOutput(array('errorCode' => 4,'errorText' => '回复失败'));
 		}
 	}
 }

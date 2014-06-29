@@ -211,6 +211,10 @@ $(function(){
 				if(data.errorCode)
 				{
 					alert(data.errorText);
+					if(parseInt(data.errorCode) == 1)
+					{
+						window.location.href = "<?php echo Yii::app()->createUrl('site/login');?>";
+					}
 				}
 				else if(data.success)
 				{
@@ -270,6 +274,10 @@ $(function(){
 				if(data.errorCode)
 				{
 					alert(data.errorText);
+					if(parseInt(data.errorCode) == 1)
+					{
+						window.location.href = "<?php echo Yii::app()->createUrl('site/login');?>";
+					}
 				}
 				else if(data.success)
 				{

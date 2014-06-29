@@ -10331,3 +10331,253 @@ REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=1
 in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php (184)
 in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php (75)
 in /Users/liujinlan/web/dinner/index.php (13)
+2014/06/29 15:23:59 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(633): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionReplyMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('replymessage')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/replymessa...')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/replymessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:24:00 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(633): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionReplyMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('replymessage')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/replymessa...')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/replymessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:24:00 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(633): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionReplyMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('replymessage')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/replymessa...')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/replymessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:24:01 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(633): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionReplyMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('replymessage')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/replymessa...')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/replymessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:24:01 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(633): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionReplyMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('replymessage')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/replymessa...')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/replymessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:28:50 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(583): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionSubmitMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('submitmessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/submitmess...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/submitmessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:28:51 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(583): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionSubmitMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('submitmessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/submitmess...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/submitmessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:28:52 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(583): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionSubmitMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('submitmessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/submitmess...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/submitmessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:29:04 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(639): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionReplyMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('replymessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/replymessa...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/replymessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:30:24 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(583): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionSubmitMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('submitmessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/submitmess...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/submitmessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:30:25 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(583): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionSubmitMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('submitmessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/submitmess...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/submitmessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:30:25 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/auth/CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(583): CWebUser->__get('member_userinfo')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionSubmitMessage()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(66): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckReqiest(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('submitmessage')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/submitmess...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/submitmessage
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=1
+---
+2014/06/29 15:36:54 [error] [exception.CException] exception 'CException' with message 'CHttpRequest and its behaviors do not have a method or closure named "createUrl".' in /Users/liujinlan/web/dinner/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/liujinlan/web/dinner/protected/views/site/lookmenu.php(216): CComponent->__call('createUrl', Array)
+#1 /Users/liujinlan/web/dinner/protected/views/site/lookmenu.php(216): CHttpRequest->createUrl('site/login')
+#2 /Users/liujinlan/web/dinner/yii/framework/web/CBaseController.php(126): require('/Users/liujinla...')
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/liujinla...', Array, true)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(869): CBaseController->renderFile('/Users/liujinla...', Array, true)
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(782): CController->renderPartial('lookmenu', Array, true)
+#6 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(194): CController->render('lookmenu', Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLookMenu()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#11 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#12 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#16 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#17 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/index
+---
