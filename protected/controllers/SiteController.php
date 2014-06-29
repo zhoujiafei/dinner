@@ -181,7 +181,7 @@ class SiteController extends FormerController
 				{
 					$message[$k]['replys'][$kk] = $vv->attributes;
 					$message[$k]['replys'][$kk]['create_time'] 	= date('Y-m-d H:i:s',$vv->create_time);
-					$message[$k]['replys'][$kk]['user_name'] 	= $vv->members->name;
+					$message[$k]['replys'][$kk]['user_name'] 	= ($vv->user_id == -1)?'前台妹子说':$vv->members->name;
 				}
 			}
 		}

@@ -10581,3 +10581,11 @@ Stack trace:
 REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=1
 HTTP_REFERER=http://localhost/dinner/index.php?r=site/index
 ---
+2014/06/29 19:49:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "messag".' in /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('messag')
+#1 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dinner/index.php?r=messag
+---
