@@ -237,6 +237,39 @@ CREATE TABLE IF NOT EXISTS `liv_user` (
 INSERT INTO `liv_user` (`id`, `username`, `password`, `salt`, `create_time`, `order_id`) VALUES
 (1, 'admin', '6b3e3f74a9ec2fbc517f50b483c5d4fa', 'aqdlt', 1398517782, 1);
 
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `liv_message`
+--
+
+CREATE TABLE IF NOT EXISTS `liv_message` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `shop_id` int(10) NOT NULL DEFAULT '0',
+  `content` text NOT NULL COMMENT '留言内容',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '留言状态',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '留言时间',
+  `user_id` int(10) NOT NULL DEFAULT '0',
+  `order_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='留言表' AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `liv_reply`
+--
+
+CREATE TABLE IF NOT EXISTS `liv_reply` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  `message_id` int(10) NOT NULL DEFAULT '0',
+  `create_time` int(10) NOT NULL DEFAULT '0',
+  `user_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='回复表' AUTO_INCREMENT=1 ;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
