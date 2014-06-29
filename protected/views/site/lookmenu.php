@@ -229,6 +229,56 @@ $(function(){
 		$('#tab_comment_tab').addClass('active');
 		$('#tab_comment').show();
 	}
+
+	//回复
+	$('.sm_reply').click(function(){
+		$('#reply_id').val($(this).attr('_msg_id'));
+		$('#reply_title').text('回复：' + $(this).parent().find('.sm_nick').text());		
+		$('#reply_box').show();
+	})
+
+	//取消回复按钮
+	$('#cancel_reply').click(function(){
+		$('#reply_box').hide();
+		$('#reply_id').val('');
+	})
+
+	//提交回复
+	$('#submit_reply').click(function(){
+		var reply_content = $('#reply_content').val();//获取回复的内容
+		var reply_id = $('#reply_id').val();//获取针对哪一条留言进行回复
+		if(!reply_content)
+		{
+			alert('回复的内容不能为空');
+			return;
+		}
+
+		if(!reply_id)
+		{
+			alert('请选择回复哪条留言');
+			return;
+		}
+
+		//提交回复
+		var url = "<?php echo Yii::app()->createUrl('site/replymessage');?>";
+		$.ajax({
+			type:'POST',
+			url:url,
+			dataType: "json",
+			data:{reply_content:reply_content,reply_id:reply_id},
+			success:function(data){
+				if(data.errorCode)
+				{
+					alert(data.errorText);
+				}
+				else if(data.success)
+				{
+					//alert(data.successText);
+					window.location.href = $('#self_url').val() + '&show_msg=1';
+				}
+			}
+		})
+	})
 })
 </script>
 <div id="school">
@@ -293,7 +343,7 @@ $(function(){
 	                    <p>
 	                        <span class="sm_nick"><?php echo $_v['user_name'];?></span>
 	                        <span class="sm_time"><?php echo $_v['create_time'];?></span>
-	                        <a href="javascript:;"  class="sm_reply">回复</a>
+	                        <a href="javascript:;"  class="sm_reply" _msg_id="<?php echo $_v['id'];?>">回复</a>
 	                    </p>
 	                    <?php if($_v['replys']):?>
 	                    <?php foreach ($_v['replys'] AS $kk => $vv):?>
@@ -445,5 +495,16 @@ $(function(){
                             </div>
                 </div>
           </div>
+    </div>
+    <div class="select_address shade_shadow" id="reply_box">
+        <h2 id="reply_title"></h2>
+        <div style="max-height: 250px; overflow-y: auto; overflow-x: hidden">
+	            <textarea id="reply_content" style="width:550px;height:100px;"></textarea>
+        </div>
+        <p class="mt_20">
+            <a href="javascript:;" class="orange_btn" id="submit_reply">提交</a> 
+            <a href="javascript:;" class="cancel_btn" id="cancel_reply">取消</a>
+        </p>
+        <input type="hidden" id="reply_id" value="" />
     </div>
 </div>

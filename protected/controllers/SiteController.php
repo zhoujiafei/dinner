@@ -624,4 +624,35 @@ class SiteController extends FormerController
 			$this->errorOutput(array('errorCode' => 5,'errorText' => '留言失败'));
 		}
 	}
+	
+	//回复留言
+	public function actionReplyMessage()
+	{
+		$message_id = Yii::app()->request->getParam('reply_id');
+		$reply_content = Yii::app()->request->getParam('reply_content');
+		$user_id = Yii::app()->user->member_userinfo['id'];
+		if(!$reply_content)
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '回复内容不能为空'));
+		}
+		
+		if(!$message_id)
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '未选择回复留言'));
+		}
+		
+		$model = new Reply();
+		$model->message_id = $message_id;
+		$model->user_id = $user_id;
+		$model->content = $reply_content;
+		$model->create_time = time();
+		if($model->save())
+		{
+			$this->output(array('success' => 1,'successText' => '回复成功'));
+		}
+		else 
+		{
+			$this->errorOutput(array('errorCode' => 5,'errorText' => '回复失败'));
+		}
+	}
 }
