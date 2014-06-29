@@ -359,7 +359,7 @@ $(function(){
                             <p><?php echo $vv['content'];?></p>
                             <p>
                                <span class="sm_nick">[<?php echo ($kk + 1);?>楼] <?php echo $vv['user_name'];?></span>
-                               <span class="sm_time"><?php echo $_v['create_time'];?></span>
+                               <span class="sm_time"><?php echo $vv['create_time'];?></span>
                             </p>
                         </div>
                         <?php endforeach;?>
