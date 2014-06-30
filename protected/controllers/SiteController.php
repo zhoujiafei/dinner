@@ -203,6 +203,13 @@ class SiteController extends FormerController
 	//确认下单
 	public function actionConfirmOrder()
 	{
+		//确认订单之前查看用户余额够不够付
+		$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
+		if($memberInfo->balance < $this->order['Total'] && !in_array(Yii::app()->user->member_userinfo['id'], Yii::app()->params['allow_user_id'])) 
+		{
+			throw new CHttpException(404,Yii::t('yii','亲！您的账户余额不足，不能下单哦，到前台妹子交钱吧！'));
+		}
+		
 		//构建数据
 		$foodOrder = new FoodOrder();
 		$foodOrder->shop_id = $this->order['shop_id'];

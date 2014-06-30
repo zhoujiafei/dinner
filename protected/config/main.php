@@ -106,6 +106,8 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
+		//允许账户余额不足可以下单的用户id
+		'allow_user_id' => array(67),
 		'record_money' => array(
 			0 => '扣款',
 			1 => '充值',
