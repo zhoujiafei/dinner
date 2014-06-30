@@ -57,7 +57,7 @@
       <!-- End .content-box-header -->
       <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
-          <table>
+          <table style="table-layout:fixed;">
             <thead>
               <tr>
                 <th>
@@ -98,7 +98,7 @@
 		                </td>
 		                <td><?php echo $v['shop_name'];?></td>
 		                <td><?php echo $v['user_name'];?></td>
-		                <td><?php echo $v['content'];?></td>
+		                <td style="overflow:hidden;text-overflow:ellipsis;word-break:keep-all;white-space:nowrap;"><?php echo $v['content'];?></td>
 		                <td><?php echo $v['create_time'];?></td>
 		                <td  _url="<?php echo Yii::app()->createUrl('message/audit',array('id' => $v['id'])); ?>"  class="status_row" style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>
 		                <td>
