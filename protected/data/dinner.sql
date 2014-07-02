@@ -270,6 +270,20 @@ CREATE TABLE IF NOT EXISTS `liv_reply` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='回复表' AUTO_INCREMENT=1 ;
 
+--
+-- 表的结构 `liv_user_login`
+--
+
+CREATE TABLE IF NOT EXISTS `liv_user_login` (
+  `user_id` int(10) NOT NULL DEFAULT '0',
+  `username` varchar(60) NOT NULL,
+  `token` char(32) NOT NULL,
+  `login_time` int(11) NOT NULL DEFAULT '0',
+  `ip` char(30) DEFAULT NULL,
+  `visit_client` tinyint(1) DEFAULT '0' COMMENT '登录客户端标识0：ios 1：安卓',
+  PRIMARY KEY (`token`)
+) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='用户登录记录';
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
