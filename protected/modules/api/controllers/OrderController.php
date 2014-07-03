@@ -1,5 +1,6 @@
 <?php
 //下单接口
+define('NEED_LOGIN',true);//需要登陆
 class OrderController extends ApiController
 {
 	public function actionIndex()
