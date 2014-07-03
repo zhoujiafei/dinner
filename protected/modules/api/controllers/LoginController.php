@@ -34,16 +34,22 @@ class LoginController extends ApiController
 		}
 		
 		//登陆成功生成user_login
+		$userLogin = UserLogin::model()->find('user_id = :user_id',array(':user_id' => $userinfo->id));
+		if(!$userLogin)
+		{
+			$userLogin = new UserLogin();
+			$userLogin->user_id = $userinfo->id;
+			$userLogin->username = $name;
+		}
 		
+		$userLogin->login_time = time();
+		$userLogin->token = md5(time() . Common::getGenerateSalt());
+		$userLogin->visit_client = 0;
+		$userLogin->save();
 		
-		
-		
-		
-		
-		
-		//登陆成功后返回用户数据
 		$member = CJSON::decode(CJSON::encode($userinfo));
+		$member['token'] = $userLogin->token;
 		unset($member['password'],$member['salt']);
-		echo json_encode($member);
+		Out::jsonOutput($member);
 	}
 }
