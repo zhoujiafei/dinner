@@ -37,6 +37,7 @@ class LoginController extends ApiController
 		$userLogin = UserLogin::model()->find('user_id = :user_id',array(':user_id' => $userinfo->id));
 		if(!$userLogin)
 		{
+			//不存在就创建
 			$userLogin = new UserLogin();
 			$userLogin->user_id = $userinfo->id;
 			$userLogin->username = $name;
