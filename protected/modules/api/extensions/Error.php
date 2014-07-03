@@ -8,6 +8,8 @@ class Error
 	const ERR_NO_PASSWORD = 40004;
 	const ERR_NO_USER = 40005;
 	const ERR_INVALID_PASSWORD = 40006;
+	const ERR_NO_SHOPID = 40007;
+	const ERR_NO_SHOP = 40008;
 	
 	public static function output($errorCode = '')
 	{
@@ -37,6 +39,8 @@ class Error
 			self::ERR_NO_PASSWORD 		=> '密码不能为空',
 			self::ERR_NO_USER 			=> '用户不存在',
 			self::ERR_INVALID_PASSWORD 	=> '密码不合法',
+			self::ERR_NO_SHOPID 		=> '没有商店id',
+			self::ERR_NO_SHOP 			=> '商店不存在',
 		);
 	}
 }

@@ -38,4 +38,78 @@ class Common
 		}
 		return $salt;
 	}
+	
+	//获取ip
+	public static function getIp()
+	{
+		if ($_SERVER['HTTP_CLIENT_IP'])
+		{
+			$realip = $_SERVER['HTTP_CLIENT_IP'];
+		}
+		elseif ($_SERVER['HTTP_X_FORWARDED_FOR'] && preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches))
+		{
+			foreach ($matches[0] AS $realip) 
+			{
+				if (!preg_match("#^(10|172\.16|192\.168)\.#", $realip)) 
+				{
+					break;
+				}
+			}
+		}
+		elseif ($_SERVER['HTTP_FROM'])
+		{
+			$realip = $_SERVER['HTTP_FROM'];
+		}
+		elseif ($_SERVER['HTTP_X_REAL_IP'])
+		{
+			$realip = $_SERVER['HTTP_X_REAL_IP'];
+		}
+		else 
+		{
+			$realip = $_SERVER['REMOTE_ADDR'];
+		}
+		
+		if (!self::_checkIp($realip))
+		{
+			$realip = '';
+		}
+		return $realip;
+	}
+	
+	//检测ip合法性私有方法
+	private static function _checkIp($ipaddres = '')
+	{
+		$preg="/\A((([0-9]?[0-9])|(1[0-9]{2})|(2[0-4][0-9])|(25[0-5]))\.){3}(([0-9]?[0-9])|(1[0-9]{2})|(2[0-4][0-9])|(25[0-5]))\Z/";
+		if(preg_match($preg,$ipaddres))
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * 获取客户端系统类型
+	 *
+	 * @return 1:ios 2:android 3:其他（电脑）
+	 */
+	public static function getClientType()
+	{
+		$agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+		$is_iphone = (strpos($agent, 'iphone')) ? true : false;
+		$is_ipad = (strpos($agent, 'ipad')) ? true : false;
+		$is_ipod = (strpos($agent, 'ipod')) ? true : false;
+		$is_android = (strpos($agent, 'android')) ? true : false;
+		if($is_iphone || $is_ipad || $is_ipod)
+		{
+			return 1;
+		}
+		else if($is_android)
+		{
+			return 2;
+		}
+		else 
+		{
+			return 3;
+		}
+	}
 }

@@ -12,7 +12,9 @@ class IndexController extends ApiController
 			$shopData[$k] = $v->attributes;
 			$shopData[$k]['logo'] = $shopData[$k]['logo']?Yii::app()->params['img_url'] . $v->image->filepath . $v->image->filename:'';
 		}
-		
-		print_r($shopData);
+		Out::jsonOutput(array(
+			'shops' 	=> $shopData,
+			'isOnTime'  => Yii::app()->check_time->isOnTime(),
+		));
 	}
 }

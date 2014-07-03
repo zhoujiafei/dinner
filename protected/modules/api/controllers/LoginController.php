@@ -45,12 +45,13 @@ class LoginController extends ApiController
 		
 		$userLogin->login_time = time();
 		$userLogin->token = md5(time() . Common::getGenerateSalt());
-		$userLogin->visit_client = 0;
+		$userLogin->visit_client = Common::getClientType();
+		$userLogin->ip = Common::getIp();
 		$userLogin->save();
-		
 		$member = CJSON::decode(CJSON::encode($userinfo));
 		$member['token'] = $userLogin->token;
 		unset($member['password'],$member['salt']);
+		//返回数据
 		Out::jsonOutput($member);
 	}
 }
