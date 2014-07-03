@@ -54,4 +54,11 @@ class LoginController extends ApiController
 		//返回数据
 		Out::jsonOutput($member);
 	}
+	
+	//退出
+	public function actionLogout()
+	{
+		$access_token = Yii::app()->request->getParam('access_token');
+	}
+	
 }
