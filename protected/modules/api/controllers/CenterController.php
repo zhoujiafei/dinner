@@ -12,9 +12,9 @@ class CenterController extends ApiController
 	//修改密码
 	public function actionModifyPassword()
 	{
-		$cur_password = Yii::app()->request->getPost('cur_password');//当前密码
-		$new_password = Yii::app()->request->getPost('new_password');//新密码
-		$comfirm_password = Yii::app()->request->getPost('comfirm_password');//确认新密码
+		$cur_password = Yii::app()->request->getParam('cur_password');//当前密码
+		$new_password = Yii::app()->request->getParam('new_password');//新密码
+		$comfirm_password = Yii::app()->request->getParam('comfirm_password');//确认新密码
 		
 		if(!$cur_password)
 		{
@@ -207,14 +207,14 @@ class CenterController extends ApiController
 		$message_id = Yii::app()->request->getParam('reply_id');
 		$reply_content = Yii::app()->request->getParam('reply_content');
 		$user_id = $this->module->user['id'];
-		if(!$reply_content)
-		{
-			Error::output(Error::ERR_NO_REPLY_CONTENT);
-		}
-		
 		if(!$message_id)
 		{
 			Error::output(Error::ERR_NO_MSGID);
+		}
+		
+		if(!$reply_content)
+		{
+			Error::output(Error::ERR_NO_REPLY_CONTENT);
 		}
 		
 		$model = new Reply();
