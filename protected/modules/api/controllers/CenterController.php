@@ -235,12 +235,76 @@ class CenterController extends ApiController
 	//用户下单接口
 	public function actionConfirmOrder()
 	{
-		//接收传递过来的菜单id
+		//接收传递过来的订单
 		$menuInfo = Yii::app()->request->getParam('menu_info');
 		$menuInfo = json_decode($menuInfo,1);
 		if ($menuInfo)
 		{
-			Out::jsonOutput($menuInfo);
-		}	
+			$shop_id = 0;
+			$totalPrice = 0;//记录总价
+			$orderData = array();
+			//根据传递过来的订单构造数据
+			foreach ($menuInfo AS $k => $v)
+			{
+				$menu = Menus::model()->find('id = :id AND status = :status',array(':id' => $v['id'],':status' => 2));
+				if(!$menu)
+				{
+					Error::output(Error::ERR_ORDER_DATA_WRONG);
+				}
+				
+				if(!$shop_id)
+				{
+					$shop_id = 	$menu->shop_id;				
+				}
+				elseif ($menu->shop_id != $shop_id)
+				{
+					Error::output(Error::ERR_MENU_NOT_SAME_SHOP);
+				}
+				
+				$orderData[] = array(
+					'Id' 			=> $menu->id,//菜单id
+					'Name' 			=> $menu->name,//菜名
+					'Count' 		=> $v['nums'],//菜的数量
+					'Price'			=> $menu->price,//菜的单价
+					'smallTotal' 	=> $menu->price * $v['nums'],//小计
+				);
+				
+				$totalPrice += $menu->price * $v['nums'];
+			}
+			
+			if(!$shop_id || !empty($orderData))
+			{
+				Error::output(Error::ERR_ORDER_DATA_WRONG);
+			}
+			
+			//获取当前用户信息，查看用户账户余额够不够付款
+			if($this->module->user['balance'] < $totalPrice && !in_array($this->module->user['id'], Yii::app()->params['allow_user_id'])) 
+			{
+				Error::output(Error::ERR_BALANCE_NOT_ENOUGH);
+			}
+			
+			//构建数据
+			$foodOrder = new FoodOrder();
+			$foodOrder->shop_id = $shop_id;
+			$foodOrder->order_number = date('YmdHis',time()) . Common::getRandNums(6);
+			$foodOrder->food_user_id = $this->module->user['id'];
+			$foodOrder->total_price = $totalPrice;
+			$foodOrder->create_time = time();
+			$foodOrder->product_info = serialize($orderData);
+			
+			if($foodOrder->save())
+			{
+				//记录订单动态
+				$foodOrderLog = new FoodOrderLog();
+				$foodOrderLog->food_order_id = $foodOrder->id;
+				$foodOrderLog->create_time = time();
+				$foodOrderLog->save();
+				Out::jsonOutput(array('return' => 1));//下单成功
+			}
+			else 
+			{
+				Error::output(Error::ERR_SAVE_FAIL);
+			}
+		}
 	}
 }

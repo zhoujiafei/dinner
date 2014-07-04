@@ -20,6 +20,9 @@ class Error
 	const ERR_NO_MSG_CONTENT = 50007;
 	const ERR_NO_MSGID = 50008;
 	const ERR_NO_REPLY_CONTENT = 50009;
+	const ERR_ORDER_DATA_WRONG = 60001;
+	const ERR_MENU_NOT_SAME_SHOP = 60002;
+	const ERR_BALANCE_NOT_ENOUGH = 60003;
 
 	public static function output($errorCode = '')
 	{
@@ -61,6 +64,9 @@ class Error
 			self::ERR_NO_MSG_CONTENT 		=> '没有留言内容',
 			self::ERR_NO_MSGID 				=> '没有留言ID',
 			self::ERR_NO_REPLY_CONTENT 		=> '没有回复内容',
+			self::ERR_ORDER_DATA_WRONG 		=> '订单数据有误',
+			self::ERR_MENU_NOT_SAME_SHOP 	=> '您提交的订单中的菜不属于同一家餐厅',
+			self::ERR_BALANCE_NOT_ENOUGH 	=> '余额不足',
 		);
 	}
 }

@@ -10658,3 +10658,19 @@ Stack trace:
 REQUEST_URI=/dinner/branches/beta/index.php?r=site/confirmorder
 HTTP_REFERER=http://localhost/dinner/branches/beta/index.php?r=site/lookcart
 ---
+2014/07/04 17:22:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/confirmOrder".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/confirmOrde...')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/confirmOrder
+---
+2014/07/04 17:22:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/confirmorder".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/confirmorde...')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/confirmorder
+---
