@@ -17,6 +17,9 @@ class Error
 	const ERR_NO_ORDERID = 50004;
 	const ERR_NO_ORDER = 50005;
 	const ERR_ORDER_CANNOT_CANCEL = 50006;
+	const ERR_NO_MSG_CONTENT = 50007;
+	const ERR_NO_MSGID = 50008;
+	const ERR_NO_REPLY_CONTENT = 50009;
 
 	public static function output($errorCode = '')
 	{
@@ -55,6 +58,9 @@ class Error
 			self::ERR_NO_ORDERID 			=> '没有订单id',
 			self::ERR_NO_ORDER 				=> '订单不存在',
 			self::ERR_ORDER_CANNOT_CANCEL 	=> '该订单不能被取消',
+			self::ERR_NO_MSG_CONTENT 		=> '没有留言内容',
+			self::ERR_NO_MSGID 				=> '没有留言ID',
+			self::ERR_NO_REPLY_CONTENT 		=> '没有回复内容',
 		);
 	}
 }

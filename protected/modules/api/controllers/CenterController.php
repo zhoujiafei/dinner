@@ -161,4 +161,74 @@ class CenterController extends ApiController
 			Error::output(Error::ERR_SAVE_FAIL);
 		}
 	}
+	
+	//用户给餐厅留言
+	public function actionLeaveMessage()
+	{
+		$content = Yii::app()->request->getParam('content');
+		$shop_id = Yii::app()->request->getParam('shop_id');
+		$user_id = $this->module->user['id'];
+		if(!$shop_id)
+		{
+			Error::output(Error::ERR_NO_SHOPID);
+		}
+		
+		if(!$content)
+		{
+			Error::output(Error::ERR_NO_MSG_CONTENT);
+		}
+		
+		$model = new Message();
+		$model->shop_id = $shop_id;
+		$model->user_id = $user_id;
+		$model->content = $content;
+		$model->create_time = time();
+		if($model->save())
+		{
+			$model->order_id = $model->id;
+			if($model->save())
+			{
+				Out::jsonOutput(array('return' => 1));//留言成功
+			}
+			else 
+			{
+				Error::output(Error::ERR_SAVE_FAIL);
+			}
+		}
+		else 
+		{
+			Error::output(Error::ERR_SAVE_FAIL);
+		}
+	}
+	
+	//用户回复留言
+	public function actionReplyMessage()
+	{
+		$message_id = Yii::app()->request->getParam('reply_id');
+		$reply_content = Yii::app()->request->getParam('reply_content');
+		$user_id = $this->module->user['id'];
+		if(!$reply_content)
+		{
+			Error::output(Error::ERR_NO_REPLY_CONTENT);
+		}
+		
+		if(!$message_id)
+		{
+			Error::output(Error::ERR_NO_MSGID);
+		}
+		
+		$model = new Reply();
+		$model->message_id = $message_id;
+		$model->user_id = $user_id;
+		$model->content = $reply_content;
+		$model->create_time = time();
+		if($model->save())
+		{
+			Out::jsonOutput(array('return' => 1));//留言成功
+		}
+		else 
+		{
+			Error::output(Error::ERR_SAVE_FAIL);
+		}
+	}
 }
