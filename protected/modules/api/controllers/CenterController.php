@@ -62,31 +62,66 @@ class CenterController extends ApiController
 	//查看今日订单
 	public function actionTodayOrder()
 	{
+		$member_id = $this->module->user['id'];
+		$criteria = new CDbCriteria;
+		$criteria->order = 't.create_time DESC';
+		$criteria->select = '*';
+		$today = strtotime(date('Y-m-d',time()));
+		$criteria->condition = 'food_user_id=:food_user_id AND t.create_time > ' . $today . ' AND t.create_time < ' . ($today + 3600 * 24);
+		$criteria->params = array(':food_user_id' => $member_id);
+
+		$model = FoodOrder::model()->with('shops','food_log')->findAll($criteria);
+		$orderData = array();
+		foreach ($model AS $k => $v)
+		{
+			$orderData[$k] = $v->attributes;
+			$orderData[$k]['shop_name'] = $v->shops->name;
+			$orderData[$k]['product_info'] = unserialize($v->product_info);
+			$orderData[$k]['create_order_date'] = date('Y-m-d',$v->create_time);
+			$orderData[$k]['create_time'] = date('H:i:s',$v->create_time);
+			$orderData[$k]['status_text'] = Yii::app()->params['order_status'][$v->status];
+			//订单状态日志
+			$status_log = CJSON::decode(CJSON::encode($v->food_log));
+			foreach ($status_log AS $kk => $vv)
+			{
+				$status_log[$kk]['status_text'] = Yii::app()->params['order_status'][$vv['status']];
+				$status_log[$kk]['create_time'] = date('H:i:s',$vv['create_time']);
+			}
+			$orderData[$k]['status_log'] = $status_log;
+		}
 		
-		
-		
-		
-		
-		
-		
+		Out::jsonOutput($orderData);
 	}
 	
 	//查看历史订单
 	public function actionHistoryOrder()
 	{
-		
+		$member_id = $this->module->user['id'];
+		$criteria = new CDbCriteria;
+		$criteria->order = 't.create_time DESC';
+		$criteria->select = '*';
+		$criteria->condition = 'food_user_id=:food_user_id AND t.create_time < ' . strtotime(date('Y-m-d',time()));
+		$criteria->params = array(':food_user_id' => $member_id);
+
+		$model = FoodOrder::model()->with('shops','food_log')->findAll($criteria);
+		$orderData = array();
+		foreach ($model AS $k => $v)
+		{
+			$orderData[$k] = $v->attributes;
+			$orderData[$k]['shop_name'] = $v->shops->name;
+			$orderData[$k]['product_info'] = unserialize($v->product_info);
+			$orderData[$k]['create_order_date'] = date('Y-m-d',$v->create_time);
+			$orderData[$k]['create_time'] = date('H:i:s',$v->create_time);
+			$orderData[$k]['status_text'] = Yii::app()->params['order_status'][$v->status];
+			//订单状态日志
+			$status_log = CJSON::decode(CJSON::encode($v->food_log));
+			foreach ($status_log AS $kk => $vv)
+			{
+				$status_log[$kk]['status_text'] = Yii::app()->params['order_status'][$vv['status']];
+				$status_log[$kk]['create_time'] = date('H:i:s',$vv['create_time']);
+			}
+			$orderData[$k]['status_log'] = $status_log;
+		}
+		Out::jsonOutput($orderData);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
