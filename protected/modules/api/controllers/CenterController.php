@@ -125,4 +125,40 @@ class CenterController extends ApiController
 		}
 		Out::jsonOutput($orderData);
 	}
+	
+	//用户取消订单
+	public function actionCancelOrder()
+	{
+		$food_order_id = Yii::app()->request->getParam('id');
+		if(!$food_order_id)
+		{
+			Error::output(Error::ERR_NO_ORDERID);
+		}
+		
+		$orderInfo = FoodOrder::model()->find('id=:id AND food_user_id=:food_user_id',array(':id' => $food_order_id,':food_user_id' => $this->module->user['id']));
+		if(!$orderInfo)
+		{
+			Error::output(Error::ERR_NO_ORDER);
+		}
+		else if($orderInfo->status != 1)
+		{
+			Error::output(Error::ERR_ORDER_CANNOT_CANCEL);
+		}
+		
+		$orderInfo->status = 3;
+		if($orderInfo->save())
+		{
+			//创建一条订单日志
+			$foodOrderLog = new FoodOrderLog();
+			$foodOrderLog->food_order_id = $food_order_id;
+			$foodOrderLog->status = $orderInfo->status;
+			$foodOrderLog->create_time = time();
+			$foodOrderLog->save();
+			Out::jsonOutput(array('return' => 1));//取消成功
+		}
+		else 
+		{
+			Error::output(Error::ERR_SAVE_FAIL);
+		}
+	}
 }

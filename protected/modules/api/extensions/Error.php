@@ -14,6 +14,9 @@ class Error
 	const ERR_PASSWORD_TOO_LONG = 50001;
 	const ERR_INVALID_ORI_PASSWORD = 50002;
 	const ERR_SAVE_FAIL = 50003;
+	const ERR_NO_ORDERID = 50004;
+	const ERR_NO_ORDER = 50005;
+	const ERR_ORDER_CANNOT_CANCEL = 50006;
 
 	public static function output($errorCode = '')
 	{
@@ -49,6 +52,9 @@ class Error
 			self::ERR_PASSWORD_TOO_LONG 	=> '设置的密码过长',
 			self::ERR_INVALID_ORI_PASSWORD 	=> '原密码不合法',
 			self::ERR_SAVE_FAIL 			=> '保存失败',
+			self::ERR_NO_ORDERID 			=> '没有订单id',
+			self::ERR_NO_ORDER 				=> '订单不存在',
+			self::ERR_ORDER_CANNOT_CANCEL 	=> '该订单不能被取消',
 		);
 	}
 }
