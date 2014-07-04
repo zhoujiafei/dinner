@@ -264,7 +264,7 @@ class CenterController extends ApiController
 				$orderData[] = array(
 					'Id' 			=> $menu->id,//菜单id
 					'Name' 			=> $menu->name,//菜名
-					'Count' 		=> $v['nums'],//菜的数量
+					'Count' 		=> intval($v['nums']),//菜的数量
 					'Price'			=> $menu->price,//菜的单价
 					'smallTotal' 	=> $menu->price * $v['nums'],//小计
 				);
