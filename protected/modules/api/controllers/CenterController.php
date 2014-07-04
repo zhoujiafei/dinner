@@ -272,7 +272,7 @@ class CenterController extends ApiController
 				$totalPrice += $menu->price * $v['nums'];
 			}
 			
-			if(!$shop_id || !empty($orderData))
+			if(!$shop_id || empty($orderData))
 			{
 				Error::output(Error::ERR_ORDER_DATA_WRONG);
 			}
