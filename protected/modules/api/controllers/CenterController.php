@@ -3,6 +3,7 @@
 define('NEED_LOGIN',true);//需要登陆
 class CenterController extends ApiController
 {
+	//显示用户的基本信息
 	public function actionIndex()
 	{
 		Out::jsonOutput($this->module->user);//返回用户信息
