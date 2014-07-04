@@ -10589,3 +10589,37 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/dinner/index.php?r=messag
 ---
+2014/07/04 08:10:53 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'login_time' in 'where clause'. The SQL statement executed was: SELECT * FROM `liv_members` `t` WHERE id = :id AND login_time + '2592000' > '1404432653'  LIMIT 1.
+in /Users/zhoujiafei/web/dinner/branches/beta/protected/modules/api/ApiModule.php (35)
+in /Users/zhoujiafei/web/dinner/branches/beta/index.php (13)
+2014/07/04 08:10:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'login_time' in 'where clause'. The SQL statement executed was: SELECT * FROM `liv_members` `t` WHERE id = :id AND login_time + '2592000' > '1404432653'  LIMIT 1' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryRow()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/ar/CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#3 /Users/zhoujiafei/web/dinner/branches/beta/protected/modules/api/ApiModule.php(35): CActiveRecord->find('id = :id AND lo...', Array)
+#4 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(263): ApiModule->beforeControllerAction(Object(OrderController), Object(CInlineAction))
+#5 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('')
+#6 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/order')
+#7 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/order&access_token=18b93fa041237129c97983444c5df432
+---
+2014/07/04 08:12:22 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'login_time' in 'where clause'. The SQL statement executed was: SELECT * FROM `liv_members` `t` WHERE id = :id AND login_time + 2592000 > 1404432742 LIMIT 1.
+in /Users/zhoujiafei/web/dinner/branches/beta/protected/modules/api/ApiModule.php (35)
+in /Users/zhoujiafei/web/dinner/branches/beta/index.php (13)
+2014/07/04 08:12:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'login_time' in 'where clause'. The SQL statement executed was: SELECT * FROM `liv_members` `t` WHERE id = :id AND login_time + 2592000 > 1404432742 LIMIT 1' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryRow()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/db/ar/CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#3 /Users/zhoujiafei/web/dinner/branches/beta/protected/modules/api/ApiModule.php(35): CActiveRecord->find('id = :id AND lo...', Array)
+#4 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(263): ApiModule->beforeControllerAction(Object(OrderController), Object(CInlineAction))
+#5 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('')
+#6 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/order')
+#7 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/order&access_token=18b93fa041237129c97983444c5df432
+---

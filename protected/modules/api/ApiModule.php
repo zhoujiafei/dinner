@@ -27,10 +27,23 @@ class ApiModule extends CWebModule
 				}
 				else 
 				{
-						
+					//检测token有没有过期
+					$userLogin = UserLogin::model()->find("token = :token AND login_time + " .Yii::app()->params['login_expire_time'] . " > " . time(),array(':token' => $accessToken));
+					if($userLogin)
+					{
+						//根据用户id查询用户信息
+						$memberInfo = Members::model()->find('id = :id',array(':id' => $userLogin->user_id));
+						if(!$memberInfo)
+						{
+							Error::output(Error::ERR_NO_LOGIN);
+						}
+					}
+					else 
+					{
+						Error::output(Error::ERR_NO_LOGIN);
+					}
 				}
 			}
-			
 			return true;
 		}
 		else
