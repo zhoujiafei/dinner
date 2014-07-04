@@ -10623,3 +10623,14 @@ Stack trace:
 #9 {main}
 REQUEST_URI=/dinner/branches/beta/index.php?r=api/order&access_token=18b93fa041237129c97983444c5df432
 ---
+2014/07/04 08:45:26 [error] [exception.CException] exception 'CException' with message 'Property "ApiModule.user" is read only.' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CComponent.php:170
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/protected/modules/api/ApiModule.php(49): CComponent->__set('user', Array)
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(263): ApiModule->beforeControllerAction(Object(CenterController), Object(CInlineAction))
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('')
+#3 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/center')
+#4 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/center&access_token=18b93fa041237129c97983444c5df432
+---

@@ -5,8 +5,7 @@ class CenterController extends ApiController
 {
 	public function actionIndex()
 	{
-		
-		
-		
+		$user = $this->module->user;
+		Out::jsonOutput($user);//返回用户信息
 	}
 }

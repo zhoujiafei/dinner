@@ -3,6 +3,7 @@
 class ApiModule extends CWebModule
 {
 	public $defaultController='index';
+	private $_user;//存放用户信息
 	public function init()
 	{
 		$this->setImport(array(
@@ -10,6 +11,18 @@ class ApiModule extends CWebModule
 			'api.components.*',
 			'api.extensions.*',
 		));
+	}
+	
+	//获取当前用户信息
+	public function getUser()
+	{
+		return $this->_user;
+	}
+	
+	//设置当前用户信息
+	public function setUser($userInfo = array())
+	{
+		$this->_user = $userInfo;
 	}
 
 	public function beforeControllerAction($controller, $action)
@@ -37,6 +50,12 @@ class ApiModule extends CWebModule
 						{
 							Error::output(Error::ERR_NO_LOGIN);
 						}
+						
+						//转换成数组
+						$memberInfo = CJSON::decode(CJSON::encode($memberInfo));
+						//把用户信息存放到user里面供访问
+						unset($memberInfo['password'],$memberInfo['salt']);
+						$this->user = $memberInfo;
 					}
 					else 
 					{
