@@ -10674,3 +10674,23 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/dinner/branches/beta/index.php?r=api/confirmorder
 ---
+2014/07/07 08:12:58 [error] [exception.CException] exception 'CException' with message 'dir can not create or can not writeable' in /Users/zhoujiafei/web/dinner/branches/beta/protected/extensions/MaterialUpload.php:30
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/protected/controllers/ShopsController.php(79): MaterialUpload->upload('logo')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/actions/CInlineAction.php(49): ShopsController->actionUpdate()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#11 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('shops/update')
+#12 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=shops/update
+HTTP_REFERER=http://localhost/dinner/branches/beta/index.php?r=shops/form&id=16
+---
