@@ -11214,3 +11214,11 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/dinner/branches/beta/index.php/api/login/name=
 ---
+2014/07/08 11:25:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "menu".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('menu')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=menu
+---
