@@ -1,3 +1,19 @@
+<script type="text/javascript">
+$(function(){
+	//按照昵称或者按照手机号搜索
+	$('#search_btn').click(function(){
+			var val = $('#search_value').val();
+			var shop_id = $('#search_shop').val();
+			var url = "<?php echo Yii::app()->createUrl('menus/index');?>";
+			window.location.href = url + '&k='+ val + '&shop_id=' + shop_id;
+	})
+})
+</script>
+<style type="text/css">
+.tab-top-search{width:100%;height:40px;}
+.tab-top-search .search-box{width:143px;height:25px;float:left;}
+.tab-top-search .select-search{width:120px;height:25px;float:left;}
+</style>
 <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
@@ -10,6 +26,32 @@
       </div>
       <!-- End .content-box-header -->
       <div class="content-box-content">
+      	<div class="tab-top-search">
+      		<div class="search-box">
+      			<input type="text" name="k" id="search_value" value="<?php echo Yii::app()->request->getParam('k');?>"/>
+      		</div>
+      		<div class="select-search">
+      			<select id="search_shop">
+      				<option value="">所有商家</option>
+      				<?php if(isset($shops) && !empty($shops)):?>
+      					<?php foreach ($shops AS $_k => $_v):?>
+      						<?php 
+      							$_cur_id = Yii::app()->request->getParam('shop_id');
+      							$_is_selected = false;
+      							if($_cur_id == $_v['id'])
+      							{
+      								$_is_selected = true;
+      							}
+      						?>
+      						<option value="<?php echo $_v['id'];?>" <?php if($_is_selected):?>selected="selected"<?php endif;?>><?php echo $_v['name'];?></option>
+      					<?php endforeach;?>
+      				<?php endif;?>
+      			</select>
+      		</div>
+      		<div class="select-search">
+      			<input type="button" id="search_btn" class="button" value="搜索" />
+      		</div>
+      	</div>
         <div class="tab-content default-tab" id="tab1">
           <table>
             <thead>

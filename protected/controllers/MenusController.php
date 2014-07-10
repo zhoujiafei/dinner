@@ -176,8 +176,19 @@ class MenusController extends Controller
 	public function actionIndex()
 	{
 		//创建查询条件
+		$menuname = Yii::app()->request->getParam('k');
+		$shopId = Yii::app()->request->getParam('shop_id');
 		$criteria = new CDbCriteria();
 		$criteria->order = 't.order_id DESC';
+		if($menuname)
+		{
+			$criteria->compare('t.name',$menuname,true);
+		}
+		
+		if($shopId)
+		{
+			$criteria->compare('t.shop_id',$shopId);
+		}
 		$count=Menus::model()->count($criteria);
 		//构建分页
 		$pages = new CPagination($count);
@@ -196,9 +207,14 @@ class MenusController extends Controller
 			$data[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];			
 			$data[$k]['price'] = $v->price . '元/份';
 		}
+		
+		//取出所有店家供前端选择
+		$shops = Shops::model()->findAll();
+		$shops = CJSON::decode(CJSON::encode($shops));
 		//输出到前端
 		$this->render('index', array(
 			'data' 	=> $data,
+			'shops' => $shops,
 			'pages'	=> $pages
 		));
 	}
