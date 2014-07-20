@@ -11282,3 +11282,51 @@ Stack trace:
 REQUEST_URI=/dinner/branches/beta/index.php?r=menus/index&k=%E7%89%9B&shop_id=
 HTTP_REFERER=http://localhost/dinner/branches/beta/index.php?r=menus/index&k=&shop_id=
 ---
+2014/07/15 08:23:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "confirmorder1".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(270): CController->missingAction('confirmorder1')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('confirmorder1')
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/center/conf...')
+#3 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/center/confirmorder1
+---
+2014/07/15 08:23:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "confirmorder1".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(270): CController->missingAction('confirmorder1')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('confirmorder1')
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/center/conf...')
+#3 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/center/confirmorder1
+---
+2014/07/15 08:24:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "confirmorder1".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(270): CController->missingAction('confirmorder1')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('confirmorder1')
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/center/conf...')
+#3 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/center/confirmorder1
+---
+2014/07/17 09:11:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "history".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CController.php(270): CController->missingAction('history')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(282): CController->run('history')
+#2 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/center/hist...')
+#3 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/center/history&access_token=b5a9869abc6f1bc206eda0e0ab7a9e03
+---
+2014/07/17 12:34:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/historyorder".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/historyorde...')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/historyorder&access_token=
+---
