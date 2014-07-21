@@ -235,6 +235,12 @@ class CenterController extends ApiController
 	//用户下单接口
 	public function actionConfirmOrder()
 	{
+		//检查在不在订餐时间内
+		if(!Yii::app()->check_time->isOnTime())
+		{
+			Error::output(Error::ERR_NOT_IN_TIME);
+		}
+		
 		//接收传递过来的订单
 		$menuInfo = Yii::app()->request->getParam('menu_info');
 		$menuInfo = json_decode($menuInfo,1);

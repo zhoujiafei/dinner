@@ -23,6 +23,7 @@ class Error
 	const ERR_ORDER_DATA_WRONG = 60001;
 	const ERR_MENU_NOT_SAME_SHOP = 60002;
 	const ERR_BALANCE_NOT_ENOUGH = 60003;
+	const ERR_NOT_IN_TIME = 60004;
 
 	public static function output($errorCode = '')
 	{
@@ -67,6 +68,7 @@ class Error
 			self::ERR_ORDER_DATA_WRONG 		=> '订单数据有误',
 			self::ERR_MENU_NOT_SAME_SHOP 	=> '您提交的订单中的菜不属于同一家餐厅',
 			self::ERR_BALANCE_NOT_ENOUGH 	=> '余额不足',
+			self::ERR_NOT_IN_TIME 			=> '不在订餐时间内',			
 		);
 	}
 }
