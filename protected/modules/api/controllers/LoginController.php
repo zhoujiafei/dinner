@@ -59,6 +59,21 @@ class LoginController extends ApiController
 	public function actionLogout()
 	{
 		$access_token = Yii::app()->request->getParam('access_token');
+		if(!$access_token)
+		{
+			Error::output(Error::ERR_NO_LOGIN);
+		}
+		
+		$model = UserLogin::model()->find('token = :token',array(':token' => $access_token));
+		if($model)
+		{
+			$model->delete();
+		}
+		
+		//退出成功
+		Out::jsonOutput(array(
+			'return' => 1
+		));
 	}
 	
 }
