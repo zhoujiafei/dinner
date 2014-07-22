@@ -401,9 +401,9 @@ class SiteController extends FormerController
 		{
 			$this->errorOutput(array('errorCode' => 1,'errorText' => '姓名不能为空'));
 		}
-		else if($name.length > 6)
+		else if(strlen($name) > 15)
 		{
-			$this->errorOutput(array('errorCode' => 1,'errorText' => '姓名太长不能超过6个字符'));
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '姓名太长不能超过15个字符'));
 		}
 
 		if(!$password1 || !$password2)

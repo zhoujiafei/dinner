@@ -12,7 +12,7 @@ $(function(){
 			$('#name_tip').text('姓名不能为空').show();
 			return;
 		}
-		else if(name.length > 6)
+		else if(name.length > 15)
 		{
 			$('#name_tip').text('姓名太长了').show();
 			return;

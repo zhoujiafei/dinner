@@ -24,6 +24,8 @@ class Error
 	const ERR_MENU_NOT_SAME_SHOP = 60002;
 	const ERR_BALANCE_NOT_ENOUGH = 60003;
 	const ERR_NOT_IN_TIME = 60004;
+	const ERR_USERNAME_TOO_LONG = 60005;
+	const ERR_USER_HAS_EXISTS = 60006;
 
 	public static function output($errorCode = '')
 	{
@@ -69,6 +71,8 @@ class Error
 			self::ERR_MENU_NOT_SAME_SHOP 	=> '您提交的订单中的菜不属于同一家餐厅',
 			self::ERR_BALANCE_NOT_ENOUGH 	=> '余额不足',
 			self::ERR_NOT_IN_TIME 			=> '不在订餐时间内',			
+			self::ERR_USERNAME_TOO_LONG 	=> '用户名过长',	
+			self::ERR_USER_HAS_EXISTS 		=> '用户已经存在',	
 		);
 	}
 }
