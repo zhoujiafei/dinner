@@ -11330,3 +11330,11 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/dinner/branches/beta/index.php?r=api/historyorder&access_token=
 ---
+2014/07/21 09:19:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/mnotice".' in /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/mnotice')
+#1 /Users/zhoujiafei/web/dinner/branches/beta/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/zhoujiafei/web/dinner/branches/beta/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dinner/branches/beta/index.php?r=api/mnotice
+---
