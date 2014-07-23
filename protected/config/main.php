@@ -106,6 +106,7 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
+		'app_version' => '1.0.0',//客户端的版本
 		'login_expire_time' => 3600 * 24 * 30,//客户端登陆过期时间
 		//允许账户余额不足可以下单的用户id
 		'allow_user_id' => array(67),

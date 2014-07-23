@@ -17,4 +17,12 @@ class IndexController extends ApiController
 			'isOnTime'  => Yii::app()->check_time->isOnTime(),
 		));
 	}
+	
+	//获取当前应用的版本
+	public function actionGetVersion()
+	{
+		Out::jsonOutput(array(
+			'app_version' => Yii::app()->params['app_version'],
+		));
+	}
 }
