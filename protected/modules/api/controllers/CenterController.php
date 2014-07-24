@@ -116,6 +116,14 @@ class CenterController extends ApiController
 			$_data['create_order_date'] = date('Y-m-d',$v->create_time);
 			$_data['create_time_text'] = date('H:i:s',$v->create_time);
 			$_data['status_text'] = Yii::app()->params['order_status'][$v->status];
+			if(date('Y-m-d',time()) == date('Y-m-d',$v->create_time))
+			{
+				$_data['is_today'] = 1;
+			}
+			else 
+			{
+				$_data['is_today'] = 0;
+			}
 			//订单状态日志
 			$status_log = CJSON::decode(CJSON::encode($v->food_log));
 			foreach ($status_log AS $kk => $vv)
