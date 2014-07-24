@@ -94,26 +94,28 @@ class CenterController extends ApiController
 		Out::jsonOutput($orderData);
 	}
 	
-	//查看历史订单
+	//查看历史订单（查询出所有订单包括当天的）
 	public function actionHistoryOrder()
 	{
 		$member_id = $this->module->user['id'];
 		$criteria = new CDbCriteria;
 		$criteria->order = 't.create_time DESC';
 		$criteria->select = '*';
-		$criteria->condition = 'food_user_id=:food_user_id AND t.create_time < ' . strtotime(date('Y-m-d',time()));
+		$criteria->condition = 'food_user_id=:food_user_id';
 		$criteria->params = array(':food_user_id' => $member_id);
 
 		$model = FoodOrder::model()->with('shops','food_log')->findAll($criteria);
 		$orderData = array();
+		$priceSum = array();//统计每月总消费
 		foreach ($model AS $k => $v)
 		{
-			$orderData[$k] = $v->attributes;
-			$orderData[$k]['shop_name'] = $v->shops->name;
-			$orderData[$k]['product_info'] = unserialize($v->product_info);
-			$orderData[$k]['create_order_date'] = date('Y-m-d',$v->create_time);
-			$orderData[$k]['create_time'] = date('H:i:s',$v->create_time);
-			$orderData[$k]['status_text'] = Yii::app()->params['order_status'][$v->status];
+			$sort = date('Y-m',$v->create_time);
+			$_data = $v->attributes;
+			$_data['shop_name'] = $v->shops->name;
+			$_data['product_info'] = unserialize($v->product_info);
+			$_data['create_order_date'] = date('Y-m-d',$v->create_time);
+			$_data['create_time_text'] = date('H:i:s',$v->create_time);
+			$_data['status_text'] = Yii::app()->params['order_status'][$v->status];
 			//订单状态日志
 			$status_log = CJSON::decode(CJSON::encode($v->food_log));
 			foreach ($status_log AS $kk => $vv)
@@ -121,7 +123,25 @@ class CenterController extends ApiController
 				$status_log[$kk]['status_text'] = Yii::app()->params['order_status'][$vv['status']];
 				$status_log[$kk]['create_time'] = date('H:i:s',$vv['create_time']);
 			}
-			$orderData[$k]['status_log'] = $status_log;
+			$_data['status_log'] = $status_log;
+			$orderData[$sort]['data'][] = $_data;
+			if(intval($v->status) == 2)
+			{
+				$priceSum[$sort][] = $_data['total_price'];
+			}
+		}
+		
+		//计算每月的总支出
+		foreach ($orderData AS $k => $v)
+		{
+			if(isset($priceSum[$k]))
+			{
+				$orderData[$k]['total_price'] = array_sum($priceSum[$k]);
+			}
+			else 
+			{
+				$orderData[$k]['total_price'] = 0;
+			}
 		}
 		Out::jsonOutput($orderData);
 	}
