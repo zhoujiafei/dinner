@@ -124,7 +124,7 @@ class CenterController extends ApiController
 				$status_log[$kk]['create_time'] = date('H:i:s',$vv['create_time']);
 			}
 			$_data['status_log'] = $status_log;
-			$orderData[$sort]['data'][] = $_data;
+			$orderData[$sort][] = $_data;
 			if(intval($v->status) == 2)
 			{
 				$priceSum[$sort][] = $_data['total_price'];
@@ -132,18 +132,24 @@ class CenterController extends ApiController
 		}
 		
 		//计算每月的总支出
+		$outData = array();
 		foreach ($orderData AS $k => $v)
 		{
+			$tmp = array();
+			$tmp['date'] = $k;
+			$tmp['data'] = $orderData[$k];
+			
 			if(isset($priceSum[$k]))
 			{
-				$orderData[$k]['total_price'] = array_sum($priceSum[$k]);
+				$tmp['total_price'] = array_sum($priceSum[$k]);
 			}
 			else 
 			{
-				$orderData[$k]['total_price'] = 0;
+				$tmp['total_price'] = 0;
 			}
+			$outData[] = $tmp;
 		}
-		Out::jsonOutput($orderData);
+		Out::jsonOutput($outData);
 	}
 	
 	//用户取消订单
