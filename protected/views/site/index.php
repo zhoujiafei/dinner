@@ -83,7 +83,13 @@
 	        <p>技术支持:周星星</p>
 	    </div>
 	</div>
-	
+	<a href="javascript:alert('扫描下方的二维码即可下载ios版客户端');" target="_blank" id="androidAppDownload" class="mt10" style="display: block;">
+	    <img src="<?php echo Yii::app()->baseUrl;?>/assets/images/front/appdown.png" width="272" height="63" alt="Adroid APP客户端">
+	</a>
+	<div class="right_item shadow">
+	    <h3>下载iphone版</h3>
+	    <img src="<?php echo Yii::app()->baseUrl;?>/assets/images/front/ios.png" width="265" height="265" />
+	</div>
 	<div class="right_item shadow" id="customerService">
 	    <h3>账户余额不足20元的会员名单</h3>
 	    <div class="ri_body">
@@ -96,16 +102,6 @@
 	        <?php endif;?>
 	    </div>
 	</div>
-	
-	<div class="right_item shadow">
-	    <h3>Q&amp;A</h3>
-	    <p class="c_blue">
-	        谁负责送餐？</p>
-	    <p class="answer">
-	        均由餐厅自己配送，阿吃啦不负责送餐。</p>
-	</div>
-	<a href="javascript:alert('敬请期待');" target="_blank" id="androidAppDownload" class="mt10" style="display: block;">
-	    <img src="<?php echo Yii::app()->baseUrl;?>/assets/images/front/appdown.png" width="272" height="63" alt="Adroid APP客户端"></a>
 	<div class="right_item shadow" id="focusUs">
 	    <h3>玩转阿吃啦</h3>
 	    <div class="ri_body">
