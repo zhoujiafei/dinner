@@ -101,6 +101,10 @@ return array(
 		'record'=>array(                                               
 			'class' => 'application.extensions.Record',
 		),
+		'menu_upload'=>array(                                               
+			'class' => 'application.extensions.MenuUpload',
+			'dirPath' => 'application.uploads',              
+		),
 	),
 
 	// application-level parameters that can be accessed

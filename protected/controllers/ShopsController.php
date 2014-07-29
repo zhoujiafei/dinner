@@ -222,6 +222,47 @@ class ShopsController extends Controller
 			throw new CHttpException(404,Yii::t('yii','请选择您要导入哪家餐厅'));
 		}
 		
+		//处理上传的菜单文件
+		if($_FILES['menufile'] && !$_FILES['menufile']['error'])
+		{
+			$menuFile = Yii::app()->menu_upload->upload('menufile');
+			if(file_exists($menuFile))
+			{
+				//读取菜单内容
+				$menuData = file_get_contents($menuFile);
+				if($menuData)
+				{
+					$menuArr = explode("\n",$menuData);
+					if($menuArr)
+					{
+						foreach ($menuArr AS $k => $v)
+						{
+							$_data = explode('#',$v);
+							$model = new Menus();
+							$model->name = $_data[0];
+							$model->price = $_data[1];
+							$model->create_time = time();
+							$model->shop_id = $id;
+							$model->status = 2;
+							if($model->save())
+							{
+								$model->order_id = $model->id;
+								$model->save();
+							}
+						}
+					}
+				}
+				$this->redirect(Yii::app()->createUrl('menus/index'));
+			}
+			else 
+			{
+				throw new CHttpException(404,Yii::t('yii','文件上传失败'));
+			}
+		}
+		else 
+		{
+			throw new CHttpException(404,Yii::t('yii','请上传要导入的菜单文件'));
+		}
 	}
 	
 	//加载模型
