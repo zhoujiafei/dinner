@@ -62,6 +62,7 @@
 		                <td  _url="<?php echo Yii::app()->createUrl('shops/audit',array('id' => $v['id'])); ?>"  class="status_row" style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>
 		                <td>
 		                  <!-- Icons -->
+		                  <a href="<?php echo Yii::app()->createUrl('shops/importMenu',array('id' => $v['id']));?>" title="导入菜单" class="button" >导入菜单</a>
 		                  <a href="<?php echo Yii::app()->createUrl('shops/form',array('id' => $v['id']));?>" title="Edit"><img src="<?php echo Yii::app()->baseUrl;?>/assets/images/icons/pencil.png" alt="Edit" /></a> 
 		                  <a href="javascript:void(0);" _href="<?php echo Yii::app()->createUrl('shops/delete',array('id' => $v['id']));?>"  class="remove_row"><img src="<?php echo Yii::app()->baseUrl;?>/assets/images/icons/cross.png" alt="Delete" /></a>
 		                </td>

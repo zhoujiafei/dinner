@@ -19,7 +19,7 @@ class ShopsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','audit','delete'),
+				'actions'=>array('create','update','audit','delete','importmenu','doimport'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -195,6 +195,33 @@ class ShopsController extends Controller
 			'data' 	=> $data,
 			'pages'	=> $pages
 		));
+	}
+	
+	//导入菜单界面
+	public function actionImportMenu()
+	{
+		$id = Yii::app()->request->getParam('id');
+		if(!$id)
+		{
+			throw new CHttpException(404,Yii::t('yii','请选择一家餐厅'));
+		}
+		
+		$model = $this->loadModel($id);
+		$data = CJSON::decode(CJSON::encode($model));
+		$this->render('import_menu',array(
+				'data' => $data,
+		));
+	}
+	
+	//开始导入
+	public function actionDoImport()
+	{
+		$id = Yii::app()->request->getParam('id');
+		if(!$id)
+		{
+			throw new CHttpException(404,Yii::t('yii','请选择您要导入哪家餐厅'));
+		}
+		
 	}
 	
 	//加载模型
