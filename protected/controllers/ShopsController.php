@@ -232,11 +232,16 @@ class ShopsController extends Controller
 				$menuData = file_get_contents($menuFile);
 				if($menuData)
 				{
-					$menuArr = explode("\n",$menuData);
+					$menuArr = explode("|",$menuData);
 					if($menuArr)
 					{
 						foreach ($menuArr AS $k => $v)
 						{
+							if(!$v)
+							{
+								break;
+							}
+							
 							$_data = explode('#',$v);
 							$model = new Menus();
 							$model->name = $_data[0];
@@ -252,7 +257,7 @@ class ShopsController extends Controller
 						}
 					}
 				}
-				$this->redirect(Yii::app()->createUrl('menus/index'));
+				$this->redirect(Yii::app()->createUrl('menus/index',array('shop_id' => $id)));
 			}
 			else 
 			{

@@ -11357,3 +11357,22 @@ Stack trace:
 REQUEST_URI=/dinner/index.php?r=shops/doImport
 HTTP_REFERER=http://localhost/dinner/index.php?r=shops/importMenu&id=3
 ---
+2014/07/30 21:46:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '创建失败' in /Users/liujinlan/web/dinner/protected/controllers/ShopsController.php:58
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): ShopsController->actionCreate()
+#1 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#2 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('shops/create')
+#11 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/dinner/index.php?r=shops/create
+HTTP_REFERER=http://localhost/dinner/index.php?r=shops/form
+---

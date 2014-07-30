@@ -97,7 +97,7 @@ $(function(){
 		                <td>
 		                  <input type="checkbox" name="infolist[]" value="<?php echo $v['id'];?>" />
 		                </td>
-		                <td><img src="<?php echo $v['index_pic'];?>" width="40" height="30"></td>
+		                <td><img src="<?php if($v['index_pic']):?><?php echo $v['index_pic']; ?><?php else:?><?php echo Yii::app()->baseUrl;?>/assets/images/defaultMenu.jpg<?php endif;?>" width="40" height="30"></td>
 		                <td><?php echo $v['name'];?></td>
 		                <td><?php echo $v['shop_name'];?></td>
 		                <td  _url="<?php echo Yii::app()->createUrl('menus/audit',array('id' => $v['id'])); ?>"  class="status_row" style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>

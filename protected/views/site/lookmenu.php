@@ -322,7 +322,7 @@ $(function(){
 				                                    		}
 				                              		?>	
 						                            <td class="foodListItem" id="liFood_<?php echo $menus[$_index]['id'];?>" food-foodid="<?php echo $menus[$_index]['id'];?>" food-foodname="<?php echo $menus[$_index]['name'];?>"  food-price="<?php echo $menus[$_index]['price'];?>" food-foodstate="0" food-foodunit="份" >
-						                                <img src="<?php echo $menus[$_index]['index_pic'];?>" width="190px" height="139px" >
+						                                <img src="<?php if($menus[$_index]['index_pic']):?><?php echo $menus[$_index]['index_pic']; ?><?php else:?><?php echo Yii::app()->baseUrl;?>/assets/images/defaultMenu.jpg<?php endif;?>" width="190px" height="139px" >
 						                                <p class="foodTitle">
 						                                    <?php echo $menus[$_index]['name'];?><span class="unit">(份)</span>
 						                                </p>
