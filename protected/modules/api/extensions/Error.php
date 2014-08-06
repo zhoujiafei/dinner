@@ -26,6 +26,8 @@ class Error
 	const ERR_NOT_IN_TIME = 60004;
 	const ERR_USERNAME_TOO_LONG = 60005;
 	const ERR_USER_HAS_EXISTS = 60006;
+	const ERR_NO_SELECT_FILE = 60007;
+	const ERR_UPLOAD_FAIL = 60008;
 
 	public static function output($errorCode = '')
 	{
@@ -73,6 +75,8 @@ class Error
 			self::ERR_NOT_IN_TIME 			=> '不在订餐时间内',			
 			self::ERR_USERNAME_TOO_LONG 	=> '用户名过长',	
 			self::ERR_USER_HAS_EXISTS 		=> '用户已经存在',	
+			self::ERR_NO_SELECT_FILE 		=> '未选择上传文件',	
+			self::ERR_UPLOAD_FAIL 			=> '上传失败',
 		);
 	}
 }

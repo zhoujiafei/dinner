@@ -347,4 +347,36 @@ class CenterController extends ApiController
 			}
 		}
 	}
+	
+	//修改头像
+	public function actionModifyAvatar()
+	{
+		//处理图片
+		if($_FILES['avatar'] && !$_FILES['avatar']['error'])
+		{
+			$imgInfo = Yii::app()->material->upload('avatar');
+			if($imgInfo)
+			{
+				//更新到用户表里面
+				$member = Members::model()->findByPk($this->module->user['id']);
+				$member->avatar = $imgInfo['id'];
+				if($member->save())
+				{
+					Out::jsonOutput(array('return' => 1));//留言成功
+				}
+				else 
+				{
+					Error::output(Error::ERR_UPLOAD_FAIL);
+				}
+			}
+			else 
+			{
+				Error::output(Error::ERR_UPLOAD_FAIL);
+			}
+		}
+		else 
+		{
+			Error::output(Error::ERR_NO_SELECT_FILE);
+		}
+	}
 }
