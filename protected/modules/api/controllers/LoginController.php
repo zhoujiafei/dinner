@@ -52,6 +52,17 @@ class LoginController extends ApiController
 		$member['token'] = $userLogin->token;
 		unset($member['password'],$member['salt']);
 		//返回数据
+		//如果存在头像，就返回
+		if($member['avatar'])
+		{
+			//取图片数据
+			$material = Material::model()->findByPk($member['avatar']);
+			$member['avatar'] = array(
+				'host' => Yii::app()->params['img_url'],
+				'filepath' => $material->filepath,
+				'filename' => $material->filename,
+			);
+		}
 		Out::jsonOutput($member);
 	}
 	

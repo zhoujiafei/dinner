@@ -55,6 +55,17 @@ class ApiModule extends CWebModule
 						$memberInfo = CJSON::decode(CJSON::encode($memberInfo));
 						//把用户信息存放到user里面供访问
 						unset($memberInfo['password'],$memberInfo['salt']);
+						//如果存在头像，就返回
+						if($memberInfo['avatar'])
+						{
+							//取图片数据
+							$material = Material::model()->findByPk($memberInfo['avatar']);
+							$memberInfo['avatar'] = array(
+								'host' => Yii::app()->params['img_url'],
+								'filepath' => $material->filepath,
+								'filename' => $material->filename,
+							);
+						}
 						$this->user = $memberInfo;
 					}
 					else 
