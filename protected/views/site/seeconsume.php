@@ -25,22 +25,31 @@
 				
 				<div id="pContent">
                     <div id="sysNotice">
-                        <h1>
-                            系统公告</h1>
+                        <h1>消费记录</h1>
                         <div class="sys_con">
-                            	<?php if(!$announce):?>
+                            	<?php if(!$data):?>
                             	<p class="not_title">
-                                <span>暂时还没有系统公告...</span>
+                                <span>暂时还没有消费记录...</span>
                                 </p>
                                 <?php else:?>
-                                <?php foreach ($announce AS $k => $v):?>
+                                <?php foreach ($data AS $k => $v):?>
                                 <p class="not_title">
-                                <span><?php echo $v['content'];?>-----------<?php echo $v['create_time'];?></span>
+                                <span><?php echo $v['user_name'];?>--------<span style="color:<?php if($v['type']):?>blue;<?php else:?>red;<?php endif;?>"><?php echo $v['type_text'];?></span>--------<?php echo $v['money'];?>元--------<?php echo $v['create_time'];?></span>
                                 </p>
                                 <?php endforeach;?>
                                 <?php endif;?>
                         </div>
                     </div>
+                    <?php $this->widget('application.widgets.MyLinkPager', array(
+                 			'pages' 			=> $pages,
+                 			'firstPageLabel' 	=> '首页',
+                 			'lastPageLabel' 	=> '末页',
+                 			'prevPageLabel' 	=> '前一页',
+                 			'nextPageLabel' 	=> '下一页',
+                 			'maxButtonCount' 	=> '5',
+                 			'header'			=> '',
+                 		));
+                 	?>
                 </div>
 </div>
 <!--end of pCenter -->

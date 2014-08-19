@@ -7,7 +7,7 @@ class SiteController extends FormerController
 	public function filters()
 	{
 		return array(
-			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder',//检测是否登录
+			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder,seeconsume',//检测是否登录
 			'checkIsCartEmpty + lookcart,confirmorder',//检测购物车是否为空
 			'checkReqiest + doregister,domodify,submitmessage,replymessage',//判断是不是ajax请求
 			'checkIsOnTime +lookmenu,lookcart,confirmorder',//判断是否在订餐时间内
@@ -679,5 +679,34 @@ class SiteController extends FormerController
 		{
 			$this->errorOutput(array('errorCode' => 4,'errorText' => '回复失败'));
 		}
+	}
+	
+	//查看消费记录（充值与扣款的记录）
+	public function actionSeeConsume()
+	{
+	    $userId = Yii::app()->user->member_userinfo['id'];
+	    $criteria = new CDbCriteria;
+		$criteria->condition = 't.user_id=:user_id';
+		$criteria->order = 't.create_time DESC';
+		$criteria->params=array(':user_id' => $userId);
+		
+		$count = RecordMoney::model()->count($criteria);
+		//构建分页
+		$pages = new CPagination($count);
+ 		$pages->pageSize = Yii::app()->params['pagesize'];
+		$pages->applyLimit($criteria);
+		$record = RecordMoney::model()->with('members')->findAll($criteria);
+		$data = array();
+		foreach ($record AS $k => $v)
+		{
+			$data[$k] = $v->attributes;
+			$data[$k]['type_text'] = Yii::app()->params['record_money'][$v['type']];
+			$data[$k]['create_time'] = date('Y-m-d H:i:s',$v['create_time']);
+			$data[$k]['user_name'] = $v->members->name;
+		}
+		$this->render('seeconsume',array(
+			'data' => $data,
+			'pages'	=> $pages
+		));
 	}
 }
