@@ -14,6 +14,6 @@
 ### 5.修改目录权限
     由于有些目录会动态的写文件，例如assets、runtime目录，所以为了简便，直接将dinner/目录权限修改成777
 ### 6.完成以上的步骤，就可以访问了
-    *前台的地址：http://localhost/dinner/index.php
-    *后台的地址：http://localhost/dinner/index.php?r=user
-    *后台的默认用户名与密码：admin  admin
+    前台的地址：http://localhost/dinner/index.php
+    后台的地址：http://localhost/dinner/index.php?r=user
+    后台的默认用户名与密码：admin  admin
