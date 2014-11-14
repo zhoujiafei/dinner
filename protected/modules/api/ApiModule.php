@@ -66,7 +66,7 @@ class ApiModule extends CWebModule
 								'filename' => $material->filename,
 							);
 						}
-						$this->user = $memberInfo;
+						$this->_user = $memberInfo;
 					}
 					else 
 					{
