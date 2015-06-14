@@ -431,3 +431,100 @@ Stack trace:
 REQUEST_URI=/dinner/index.php?r=site/confirmorder
 HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookcart
 ---
+2015/06/14 18:44:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message '您选择的这家餐厅不存在或者已经倒闭了！' in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php:141
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLookMenu()
+#1 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#2 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(75): CFilterChain->run()
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#10 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=2
+---
+2015/06/14 18:46:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php:73
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(51): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookcart')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookcart')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookcart
+---
+2015/06/14 18:46:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php:73
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#6 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=2
+---
+2015/06/14 18:47:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php:73
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(51): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(24): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#7 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('confirmorder')
+#11 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#12 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dinner/index.php?r=site/confirmorder
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookcart
+---
+2015/06/14 18:47:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php:73
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /Users/liujinlan/web/dinner/protected/controllers/SiteController.php(51): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookcart')
+#8 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookcart')
+#9 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookcart
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/lookmenu&shop_id=2
+---
+2015/06/14 18:47:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in /Users/liujinlan/web/dinner/protected/controllers/SiteController.php:73
+Stack trace:
+#0 /Users/liujinlan/web/dinner/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 /Users/liujinlan/web/dinner/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(291): CFilterChain->run()
+#3 /Users/liujinlan/web/dinner/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(282): CController->run('lookmenu')
+#5 /Users/liujinlan/web/dinner/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#6 /Users/liujinlan/web/dinner/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /Users/liujinlan/web/dinner/index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/dinner/index.php?r=site/lookmenu&shop_id=2
+HTTP_REFERER=http://localhost/dinner/index.php?r=site/index
+---

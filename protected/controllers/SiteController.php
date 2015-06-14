@@ -135,6 +135,12 @@ class SiteController extends FormerController
 		}
 		$shopData = CJSON::decode(CJSON::encode($shopData));
 		
+		//判断改商家有没有下市场
+		if(intval($shopData['status']) != 2)
+		{
+		    throw new CHttpException(404,Yii::t('yii','您选择的这家餐厅不存在或者已经倒闭了！'));
+		}
+
 		//根据店铺id查询出该店铺的菜单
 		$menuData = Menus::model()->with('food_sort','image','shops')->findAll(array('condition' => 't.shop_id=:shop_id AND t.status=:status','params' => array(':shop_id' => $shop_id,':status' => 2)));
 		$data = array();
