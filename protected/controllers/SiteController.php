@@ -537,6 +537,12 @@ class SiteController extends FormerController
 				$this->errorOutput(array('errorCode' => 1,'errorText' => '没有id'));
 			}
 			
+			//判断当前时间有没有已经过了订餐的时间，如果过了订餐的时间，就不能取消订单了，只能让妹子操作后台取消
+    		if(!Yii::app()->check_time->isOnTime())
+    		{
+    			$this->errorOutput(array('errorCode' => 1,'errorText' => '已经过了订餐时间，您暂时不能取消订单，如果确实需要取消，请联系前台妹子'));
+    		}
+			
 			$orderInfo = FoodOrder::model()->find('id=:id AND food_user_id=:food_user_id',array(':id' => $food_order_id,':food_user_id' => Yii::app()->user->member_userinfo['id']));
 			if(!$orderInfo)
 			{
