@@ -79,8 +79,8 @@
 	    <h3>
 	        客户服务</h3>
 	    <div class="ri_body">
-	        <p>客服电话:911</p>
-	        <p>技术支持:雷峰塔算命机构首席算命师</p>
+	        <p>客服QQ:564751169</p>
+	        <p>技术支持:周星星</p>
 	    </div>
 	</div>
 	<a href="javascript:alert('扫描下方的二维码即可下载ios版客户端');" target="_blank" id="androidAppDownload" class="mt10" style="display: block;">

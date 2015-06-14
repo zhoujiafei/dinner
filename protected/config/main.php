@@ -57,10 +57,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=10.0.1.31;dbname=hoge_dinner',
+			'connectionString' => 'mysql:host=localhost;dbname=dinner',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'hogesoft',
+			'password' => '123456',
 			'charset' => 'utf8',
 			'tablePrefix' => 'liv_',
 		),
