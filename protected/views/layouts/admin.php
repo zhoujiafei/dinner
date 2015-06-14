@@ -41,7 +41,7 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/assets/css/inv
 	<div class="clear"></div>
     <div id="footer"> 
     <small>
-      &#169; Copyright 2014 加菲猫有限公司 | Powered by <a href="http://www.zhouxingxing.com/">http://www.zhouxingxing.com</a> | <a href="#">Top</a>
+      &#169; Copyright 2015 加菲猫科技有限公司 | Powered by <a href="http://www.yiya520.com/">www.yiya520.com</a> | <a href="#">Top</a>
     </small> 
     </div>
   </div>
