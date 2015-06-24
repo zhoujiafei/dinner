@@ -142,6 +142,8 @@ $(function(){
 		{
 			$('#no_send').show();
 			$('#tbbasket').hide();
+			//如果购物车里面没有商品，还要清除cookie
+			_cart.Clear();
 		}
 		
 		$('#totalPrice').html(_cart.Read().Total);
