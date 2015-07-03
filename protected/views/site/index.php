@@ -49,6 +49,9 @@
                                                 <?php if($isOnTime):?>
                                                 <p class="si_rec star">推荐度：0星</p>
                                                 <p class="si_com"><em>&nbsp;</em></p>
+                                                <?php if ($shops[$_index]['url']):?>
+                                                	<a href="<?php echo $shops[$_index]['url'];?>" target="_blank">商家网站</a>
+                                                <?php endif;?>
                                                 <?php else:?>
                                                 <span class="rest"></span>
                                                 <p class="rest">已打烊</p>

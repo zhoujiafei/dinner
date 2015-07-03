@@ -34,8 +34,8 @@ class Shops extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, address, create_time, update_time, linkman,tel', 'required'),
-			array('logo,order_id,status','safe'),
-			array('id, name, district_id, address, create_time, update_time, logo, tel, linkman, order_id', 'safe', 'on'=>'search'),
+			array('logo,order_id,status,url','safe'),
+			array('id, name, district_id, address, create_time, update_time, logo, tel, linkman, order_id ,url', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,6 +65,7 @@ class Shops extends CActiveRecord
 			'tel' => 'Tel',
 			'linkman' => 'Linkman',
 			'order_id' => 'Order',
+			'url' => 'Url',
 		);
 	}
 
@@ -96,6 +97,7 @@ class Shops extends CActiveRecord
 		$criteria->compare('tel',$this->tel,true);
 		$criteria->compare('linkman',$this->linkman,true);
 		$criteria->compare('order_id',$this->order_id);
+		$criteria->compare('url',$this->url);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

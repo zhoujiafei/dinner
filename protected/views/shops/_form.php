@@ -55,6 +55,11 @@ else
             </p>
             
             <p>
+              <label>商家网站链接</label>
+              <input class="text-input small-input" type="text" name="Shops[url]" value="<?php echo CHtml::encode($data['url']); ?>"/>
+            </p>
+            
+            <p>
               <input type="hidden" name="id" value="<?php echo $data['id'];?>" />
               <input class="button" type="submit" value="<?php echo $op_text;?>" />
             </p>
