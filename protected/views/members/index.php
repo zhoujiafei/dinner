@@ -5,6 +5,30 @@ $(function(){
 		var url = $('#request_url').val();
 		window.location.href = url + '&k=' + val;
 	})
+
+	$('.resetpass_btn').click(function(){
+		if(confirm('您确定要重置此人的密吗?'))
+		{
+			var member_id = $(this).attr('_id');
+			var url = "<?php echo Yii::app()->createUrl('members/resetpassword');?>";
+			$.ajax({
+				type:'POST',
+				url:url,
+				dataType: "json",
+				data:{member_id:member_id},
+				success:function(data){
+					if(data.errorCode)
+					{
+						alert(data.errorText);
+					}
+					else if(data.success)
+					{
+						alert(data.successText);
+					}
+				}
+			})
+		}
+	})
 })
 </script>
 <div class="content-box">
@@ -74,6 +98,7 @@ $(function(){
 		                	<a href="<?php echo Yii::app()->createUrl('members/recharge',array('id' => $v['id']));?>"  class="button">充值</a>
 		                	<a href="<?php echo Yii::app()->createUrl('members/deduct',array('id' => $v['id']));?>"  class="button">扣款</a>
 		                	<a href="<?php echo Yii::app()->createUrl('members/seerecord',array('user_id' => $v['id']));?>"  class="button">查看操作记录</a>
+		                	<a href="javascript:void(0);" _id="<?php echo $v['id'];?>"  class="button resetpass_btn">重置密码</a>
 		                  	<a href="javascript:void(0);" _href="<?php echo Yii::app()->createUrl('members/delete',array('id' => $v['id']));?>"  class="remove_row"><img src="<?php echo Yii::app()->baseUrl;?>/assets/images/icons/cross.png" alt="Delete" /></a>
 		                </td>		              
 		             </tr>

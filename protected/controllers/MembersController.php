@@ -7,7 +7,7 @@ class MembersController extends Controller
 	{
 		return array(
 			'accessControl',
-			'checkReqiest + dorecharge,dodeduct',
+			'checkReqiest + dorecharge,dodeduct,resetpassword',
 		);
 	}
 
@@ -20,7 +20,7 @@ class MembersController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('audit','delete','recharge','dorecharge','deduct','dodeduct','seerecord'),
+				'actions'=>array('audit','delete','recharge','dorecharge','deduct','dodeduct','seerecord','resetpassword'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -280,6 +280,31 @@ class MembersController extends Controller
 		return $money;
 	}
 	
+	//重置某个用户的密码
+	public function actionResetpassword()
+	{
+	    $member_id 	= Yii::app()->request->getPost('member_id');
+		$member = $this->loadModel($member_id);
+		if(!$member)
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '该用户不存在'));
+		}
+		
+		//开始重置密码：重置之后的密码是：123456
+	    $salt = Common::getGenerateSalt();
+		$member->salt = $salt;
+		$member->password = md5($salt . '123456');
+		$member->update_time = time();
+		if($member->save())
+		{
+			$this->output(array('success' => 1,'successText' => '重置 -- ' .$member->name. ' -- 的密码成功!'));
+		}
+		else 
+		{
+			$this->errorOutput(array('errorCode' => 1,'errorText' => '重置 -- ' .$member->name. ' -- 的密码失败!'));
+		}
+	}
+
 	//加载模型
 	public function loadModel($id)
 	{
