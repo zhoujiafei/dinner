@@ -215,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `liv_shops` (
   `tel` varchar(50) DEFAULT NULL COMMENT '联系电话',
   `linkman` varchar(20) DEFAULT NULL COMMENT '联系人',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
+  `url` varchar(128) NOT NULL COMMENT '商家url',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='商家基本信息' AUTO_INCREMENT=1 ;
 
@@ -284,8 +285,6 @@ CREATE TABLE IF NOT EXISTS `liv_user_login` (
   PRIMARY KEY (`token`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='用户登录记录';
 
--- Add Column For liv_shops
-ALTER TABLE  `liv_shops` ADD  `url` VARCHAR( 128 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT  '商家url'
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
