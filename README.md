@@ -18,4 +18,8 @@
     后台的地址：http://localhost/dinner/index.php?r=user
     后台的默认用户名与密码：admin  admin
 ### 7.注意
-    如果安装好之后出现PHP notice错误，建议修改php.ini里面的error_reporting = E_ALL & ~E_NOTICE
+    1.如果安装好之后出现PHP notice错误，建议修改php.ini里面的error_reporting = E_ALL & ~E_NOTICE
+    2.导入菜单的时候,文件里面的格式类似下面这样，每行顶格写，一行一个菜，菜名与价格中间用#分隔
+      牛肉粉丝#28.0
+      宫保鸡丁#12.0
+      鱼香肉丝#16.0
