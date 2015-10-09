@@ -17,4 +17,5 @@
     前台的地址：http://localhost/dinner/index.php
     后台的地址：http://localhost/dinner/index.php?r=user
     后台的默认用户名与密码：admin  admin
-### 7.注意：如果安装好之后出现PHP notice错误，建议修改php.ini里面的error_reporting = E_ALL & ~E_NOTICE
+### 7.注意
+    如果安装好之后出现PHP notice错误，建议修改php.ini里面的error_reporting = E_ALL & ~E_NOTICE
