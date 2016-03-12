@@ -122,7 +122,7 @@ $(function(){
               		<label>按日期查询订单：</label>
               	</td>
               	<td colspan="2">
-              		<input class="text-input small-input" type="text"  id="date" />
+              		<input class="text-input small-input" type="date"  id="date" />
               		<input type="button" class="button" value="查询" id="searchOrder" />
               	</td>
                 <td colspan="3">
